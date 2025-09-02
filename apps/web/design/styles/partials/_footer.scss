@@ -1,0 +1,425 @@
+footer {
+    background: #E0DBD1;
+    padding: 45px 20px;
+    position: relative;
+
+    .float-icon {
+        bottom: 47px;
+        max-width: 28px;
+        position: absolute;
+        right: 20px;
+        width: 100%;
+    }
+
+    .holder {
+        margin: 0 auto;
+        max-width: 428px;
+        width: 100%;
+    }
+
+    .header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 8px;
+        position: relative;
+        width: 100%;
+    }
+
+    .line {
+        bottom: 0;
+        background: #7E7E7E;
+        height: 0.75px;
+        left: 0;
+        position: absolute;
+        width: 0;
+
+        &.apply-effect {
+            width: 100%;
+        }
+    }
+
+    .header-content {
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+
+        .desc {
+            opacity: 0;
+        }
+    }
+
+    .title, .desc {
+        color: #000000;
+        font-family: 'Switzer-Light';
+        font-size: 15px;
+        line-height: 20px;
+        text-transform: uppercase;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .desc {
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    .number {
+        color: #000000;
+        font-family: 'Switzer-Light';
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .content {
+        padding-top: 65px;
+    }
+
+    .text-wrapper {
+        max-width: 310px;
+        width: 100%;
+    }
+
+    .text {
+        color: #585858;
+        font-family: 'Switzer-Light';
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .form-wrapper {
+        padding-top: 50px;
+    }
+
+    .contact-success-message {
+        color: #585858;
+        font-family: 'Switzer-Regular';
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 24px;
+        max-width: 226px;
+        opacity: 0;
+        transition: all 550ms ease-in-out;
+        width: 100%;
+
+        &.sent {
+            opacity: 1;
+        }
+    }
+
+    .newsletter-wrapper {
+        margin-top: 50px;
+    }
+
+    .newsletter-text {
+        color: #000000;
+        font-family: 'OptimaNovaLTProRegular';
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .newsletter-form {
+        padding-top: 23px;
+    }
+
+    .newsletter-success-message {
+        color: #585858;
+        font-family: 'Switzer-Light';
+        font-size: 10px;
+        line-height: 18px;
+        max-width: 221px;
+        opacity: 0;
+        transition: all 550ms ease-in-out;
+        width: 100%;
+
+        &.sent {
+            opacity: 1;
+        }
+    }
+
+    .desktop-links {
+        display: none;
+    }
+
+    .mobile-links {
+        margin-top: 60px;
+        max-width: 355px;
+        padding-right: 20px;
+        width: 100%;
+    }
+
+    .flex-content {
+        align-items: flex-end;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+
+        &:first-child {
+            margin-top: 0;
+
+            .right {
+                padding-bottom: 4px;
+            }
+        }
+    }
+
+    .left {
+        max-width: 190px;
+        width: 100%;
+    }
+
+    .right {
+        max-width: 93px;
+        width: 100%;
+    }
+
+    .link, .copyright {
+        color: #585858;
+        display: block;
+        font-family: 'Switzer-Light';
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 10px;
+        text-decoration: none;
+
+        &.location {
+            line-height: 25px;
+            margin-top: 6px;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &.splash, &.privacy {
+
+        .number {
+            display: none;
+        }
+    }
+
+    &.privacy {
+
+        .header, .content {
+            display: none;
+        }
+
+        .mobile-links {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    footer {
+        padding: 67px 45px 41px;
+
+        .float-icon {
+            right: 45px;
+        }
+
+        .holder {
+            max-width: 1422px;
+        }
+
+        .header {
+            padding-bottom: 15px;
+        }
+
+        .header-content {
+            overflow: hidden;
+
+            .title {
+                transform: translateY(0);
+            }
+
+            .desc {
+                opacity: 1;
+                transform: translateY(100%);
+            }
+
+            &:hover {
+
+                .title {
+                    transform: translateY(-100%);
+                }
+
+                .desc {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        .title, .desc {
+            letter-spacing: 0.02em;
+        }
+
+        .number {
+            color: #000000;
+            font-family: 'Switzer-Light';
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .content {
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 117px;
+        }
+
+        .text-wrapper {
+            max-width: 281px;
+            padding-right: 15px;
+        }
+
+        .text {
+            line-height: 24px;
+        }
+
+        .form-wrapper {
+            max-width: 599px;
+            min-width: 599px;
+            padding-top: 0;
+            width: 599px;
+        }
+
+        .contact-success-message {
+            margin-top: 23px;
+            max-width: 531px;
+        }
+
+        .newsletter-wrapper {
+            margin-top: 0;
+            max-width: 357px;
+            padding-left: 15px;
+            width: 100%;
+        }
+
+        .newsletter-form {
+            padding-top: 24px;
+        }
+
+        .newsletter-success-message {
+            line-height: 16px;
+            max-width: 261px;
+            padding-top: 5px;
+        }
+
+        .mobile-links {
+            display: none;
+        }
+
+        .desktop-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1315px;
+            padding-right: 40px;
+            padding-top: 46px;
+            width: 100%;
+        }
+
+        .flex-content {
+            align-items: flex-start;
+        }
+
+        .left-links {
+            max-width: 726px;
+            padding-right: 30px;
+            width: 100%;
+        }
+
+        .left, .right {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            max-width: 270px;
+            padding-right: 15px;
+            width: 100%;
+        }
+
+        .right {
+            max-width: 336px;
+        }
+
+        .right-links {
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            max-width: 195px;
+            width: 100%;
+        }
+
+        .link, .copyright {
+            margin-top: 0;
+
+            &.with-mt {
+                margin-top: 4px;
+            }
+
+            &.location {
+                line-height: 20px;
+                margin-top: 0;
+            }
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .link {
+            position: relative;
+            width: fit-content;
+
+            &:after {
+                background: #585858;
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 0.7px;
+                left: 100%;
+                position: absolute;
+                transition: all 550ms ease-in-out;
+                width: 0;
+            }
+
+            &:hover {
+
+                &:after {
+                    left: 0;
+                    transition: width 550ms ease-in-out;
+                    width: 100%;
+                }
+
+                &.location {
+
+                    &:after {
+                        width: calc(100% - 10px);
+                    }
+                }
+            }
+        }
+
+        .location {
+            max-width: 207px;
+            padding-right: 10px;
+        }
+
+        .copyright {
+            line-height: 20px;
+            max-width: 99px;
+            width: 100%;
+        }
+
+        &.privacy {
+
+            .desktop-links {
+                padding-top: 0;
+            }
+        }
+    }
+}

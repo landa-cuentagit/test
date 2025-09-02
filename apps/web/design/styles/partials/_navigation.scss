@@ -1,0 +1,218 @@
+.navigation {
+    background: transparent;
+    mix-blend-mode: exclusion;
+    left: 0;
+    padding: 26px 22px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all 550ms ease-in-out;
+    z-index: 99;
+
+    .logo {
+        display: block;
+        max-width: 131px;
+        mix-blend-mode: exclusion;
+        position: relative;
+        transition: all 550ms ease-in-out;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .toggle-wrapper {
+        height: 7px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 23px;
+        z-index: 2;
+    }
+
+    .toggle-btn {
+        height: 7px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 23px;
+    }
+
+    .bar {
+        background: #D9D9D9;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: all 550ms ease-in-out;
+        width: 23px;
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+        }
+    }
+
+    .list-content.desktop {
+        display: none;
+    }
+
+    &.expanded {
+
+        .logo {
+            pointer-events: none;
+        }
+
+        .bar {
+
+            &:nth-child(1) {
+                top: 50%;
+                transform: rotate(45deg) translateY(-50%);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                bottom: 50%;
+                transform: rotate(-45deg) translateY(50%);
+            }
+        }
+    }
+}
+
+.list-wrapper {
+    align-items: flex-start;
+    background: #353C35;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    max-width: 356px;
+    mix-blend-mode: unset;
+    opacity: 0;
+    padding: 0 21px 0;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    transition: all 350ms ease-in-out;
+    width: calc(100vw - 72px);
+    z-index: 98;
+
+    &.expanded {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.opt {
+    align-items: center;
+    color: #DED2B4;
+    display: flex;
+    font-family: 'Switzer-Light';
+    font-size: 23px;
+    line-height: 30px;
+    margin-top: 28px;
+    mix-blend-mode: exclusion;
+    text-decoration: none;
+
+    span {
+        display: block;
+        overflow: hidden;
+        transition: all 550ms ease-in-out;
+        width: 0;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &.active {
+
+        span {
+            width: 23px;
+        }
+    }
+}
+
+.social-links {
+    bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    max-width: 130px;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+
+    a {
+        color: #B7AEA4;
+        font-family: 'Switzer-Light';
+        font-size: 13px;
+        line-height: 17px;
+        text-decoration-line: underline;
+    }
+}
+
+@media(min-width: 768px) {
+
+    .navigation {
+        padding: 30px 45px;
+
+        .logo {
+            max-width: 156px;
+            pointer-events: none;
+        }
+
+        .content {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .list-content.desktop {
+            display: block;
+        }
+
+        .list-holder {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .opt {
+            color: #F4F0E6;
+            font-size: 13px;
+            line-height: 17px;
+            margin-right: 28px;
+            margin-top: 0;
+            mix-blend-mode: exclusion;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active, &:hover {
+
+                span {
+                    width: 13px;
+                }
+            }
+        }
+    }
+
+    .list-wrapper {
+        display: none;
+    }
+}

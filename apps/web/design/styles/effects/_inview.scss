@@ -1,0 +1,60 @@
+.image-effect {
+
+    div, img {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+        overflow: hidden;
+        transition: all 900ms ease-in-out;
+    }
+
+    &.apply-effect {
+
+        div, img {
+            clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);
+        }
+    }
+}
+
+.line.to-bottom {
+    transition: height 1500ms ease-in-out;
+}
+
+.line.to-right {
+    transition: width 1500ms ease-in-out;
+}
+
+.simple-effect {
+    opacity: 0;
+    transition: all 1250ms ease-in-out;
+
+    &.apply-effect {
+        opacity: 1;
+    }
+}
+
+.effect-to-left {
+
+    p {
+        opacity: 0;
+        transform: translateX(50%);
+        transition: all 1250ms ease-in-out;
+    }
+
+    &.apply-effect {
+
+        p {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+.text-effect, .waiting-text-effect {
+    opacity: 0;
+    transform: translateY(20%) scale(0.98);
+    transition: all 750ms ease-in-out;
+
+    &.apply-effect {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

@@ -1,0 +1,79 @@
+.block.cover {
+    align-items: center;
+    color: #E8E3D9;
+    display: flex;
+    font-family: 'OptimaNovaLTProLight';
+    font-size: 22px;
+    height: 100dvh;
+    justify-content: center;
+    line-height: 30px;
+    padding: 0 70px;
+    position: relative;
+    text-align: center;
+
+    .logo {
+        display: block;
+        left: 24px;
+        max-width: 131px;
+        mix-blend-mode: exclusion;
+        position: absolute;
+        top: 12px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .background-one {
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .background-two {
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        bottom: 0;
+        height: 50%;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+
+    .holder {
+        max-width: 291px;
+        position: relative;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .block.cover {
+        font-size: 24px;
+        line-height: 34px;
+
+        .logo {
+            left: 45px;
+            max-width: 155px;
+            top: 30px;
+        }
+
+        .background-one {
+            height: 100%;
+            width: 50%;
+        }
+
+        .background-two {
+            height: 100%;
+            width: 50%;
+        }
+
+        .holder {
+            max-width: 367px;
+        }
+    }
+}

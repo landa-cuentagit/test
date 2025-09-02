@@ -1,0 +1,237 @@
+.contact-form {
+    position: relative;
+
+    .input-container {
+        padding-top: 20px;
+    }
+
+    .input-container.flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    label {
+        color: #000000;
+        font-family: 'OptimaNovaLTProRegular';
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .label-name {
+        min-width: 134px;
+        padding-right: 12px;
+    }
+
+    .label-email {
+        min-width: 94px;
+        padding-right: 7px;
+    }
+
+    .label-phone {
+        min-width: 77px;
+        padding-right: 7px;
+    }
+
+    .label-position {
+        min-width: 57px;
+        padding-right: 7px;
+    }
+
+    .label-company {
+        min-width: 24px;
+        padding-right: 7px;
+    }
+
+    .info-personal {
+        display: flex;
+        justify-content: space-between;
+
+        .input-container {
+
+            &:last-child {
+                padding-left: 14px;
+            }
+        }
+    }
+
+    input[type=text], input[type=number], textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #989898;
+        display: block;
+        color: #585858;
+        font-family: 'Switzer-Light';
+        font-size: 15px;
+        line-height: 24px;
+        max-width: 100%;
+        outline: none;
+        transition: border-bottom 550ms ease-in-out;
+        width: 100%;
+
+        &.isError {
+            border-bottom: 1px solid #FF3737;
+        }
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+    -moz-appearance: textfield;
+    }
+
+    .newsletter-input {
+        padding-bottom: 2px;
+    }
+
+    textarea {
+        height: 34px;
+        margin-top: 42px;
+        padding-bottom: 4px;
+    }
+
+    .newsletter-input {
+        padding-bottom: 6px;
+
+        &::placeholder {
+            color: #585858;
+        }
+    }
+
+    button[type=submit] {
+        background: transparent;
+        border: none;
+        color: #000000;
+        display: block;
+        font-family: 'Switzer-Light';
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        margin-left: auto;
+        margin-top: 13px;
+        outline: none;
+        position: relative;
+        text-transform: uppercase;
+        width: fit-content;
+
+        &:after {
+            background: #000000;
+            bottom: 2.5px;
+            content: '';
+            display: block;
+            height: 0.7px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+
+    .extra-text {
+        color: #585858;
+        font-family: 'Switzer-Light';
+        font-size: 10px;
+        line-height: 18px;
+        max-width: 186px;
+        width: 100%;
+
+        a {
+            color: inherit;
+            position: relative;
+            text-decoration: none;
+
+            &:after {
+                background: #585858;
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 0.7px;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    .contact-form {
+
+        .input-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input-flex.first {
+
+            .input-container {
+
+                &:first-child {
+                    max-width: 290px;
+                    width: 100%;
+                }
+
+                &:last-child {
+                    max-width: 301px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .flex-content-form {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 22px;
+        }
+
+        .extra-text {
+            line-height: 20px;
+            max-width: 348px;
+            order: 1;
+            padding-right: 20px;
+
+            a {
+                transition: all 550ms ease-in-out;
+
+                &:after {
+                    transition: all 550ms ease-in-out;
+                }
+
+                &:hover {
+                    color: #85837D;
+
+                    &:after {
+                        background: #85837D;
+                        width: 0;
+                    }
+                }
+            }
+        }
+
+        button[type=submit] {
+            cursor: pointer;
+            margin-top: 0;
+            order: 2;
+            transition: all 550ms ease-in-out;
+
+            &:after {
+                transition: all 550ms ease-in-out;
+            }
+
+            &:hover {
+                color: #85837D;
+
+                &:after {
+                    background: #85837D;
+                    width: 0;
+                }
+            }
+        }
+    }
+}

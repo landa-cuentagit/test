@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'OptimaNovaLTProLight';
+    src: url('../fonts/OptimaNovaLTProLight.otf');
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+@font-face {
+    font-family: 'OptimaNovaLTProMedium';
+    src: url('../fonts/OptimaNovaLTProMedium.otf');
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+@font-face {
+    font-family: 'OptimaNovaLTProRegular';
+    src: url('../fonts/OptimaNovaLTProRegular.otf');
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+@font-face {
+    font-family: 'Switzer-Regular';
+    src: url('../fonts/Switzer-Regular.otf');
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+@font-face {
+    font-family: 'Switzer-Light';
+    src: url('../fonts/Switzer-Light.otf');
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth !important;
+
+    &.no-scroll {
+        overflow: hidden;
+        scroll-behavior: unset;
+    }
+}
+
+::selection {
+    background-color: rgba(223, 216, 207, .8);   /* fondo de la selección */
+}
+
+.outer-wrapper {
+    background: #F1EDE5;
+    overflow: hidden;
+    position: relative;
+
+    &.intro-is-inview {
+        height: 100dvh;
+        position: fixed;
+        width: 100%;
+    }
+}
+
+.show-intro {
+    background: url('../icons/landa_icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 36px;
+    height: 10px;
+    position: fixed;
+    right: 27px;
+    width: 18px;
+    z-index: 888;
+}
+
+strong {
+    font-weight: normal;
+}
+
+img, video {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.hidden-xs {
+    display: none !important;
+}
+
+.visible-xs {
+    display: block !important;
+}
+
+@media (min-width: 768px) {
+
+    .show-intro {
+        bottom: 28px;
+        cursor: pointer;
+        height: 16px;
+        right: 45px;
+        width: 30px;
+    }
+
+    .hidden-xs {
+        display: block !important;
+    }
+    
+    .visible-xs {
+        display: none !important;
+    }
+}
+
+// Import Sections
+@import './sections/intro';
+@import './sections/cover';
+@import './sections/section-one';
+@import './sections/destinations';
+@import './sections/capabilities';
+@import './sections/about';
+@import './sections/privacy';
+
+// Import Privacy Sections
+
+// Import Partials
+@import './partials/navigation';
+@import './partials/footer';
+@import './partials/contact';
+
+// Import Effects
+@import './effects/inview';

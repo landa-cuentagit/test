@@ -1,0 +1,101 @@
+.block.section-one {
+    color: #000000;
+    font-family: 'OptimaNovaLTProLight';
+    font-size: 19px;
+    line-height: 30px;
+    padding: 130px 39px 25px;
+    text-align: center;
+
+    .holder {
+        margin: 0 auto;
+        max-width: 428px;
+        width: 100%;
+    }
+
+    strong {
+        font-family: 'OptimaNovaLTProMedium';
+    }
+
+    .cta {
+        color: #000000;
+        display: block;
+        font-family: 'Switzer-Light';
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0 auto;
+        margin-top: 50px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: fit-content;
+
+        &:after {
+            background: #000000;
+            bottom: 2.5px;
+            content: '';
+            display: block;
+            height: 0.7px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+
+    .image-wrapper {
+        margin: 0 auto;
+        margin-top: 28px;
+        max-width: 262px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .block.section-one {
+        font-size: 22px;
+        padding: 185px 45px 69px;
+        position: relative;
+
+        .holder {
+            max-width: 1422px;
+            position: relative;
+        }
+
+        .text-wrapper {
+            margin: 0 auto;
+            max-width: 771px;
+            width: 100%;
+        }
+
+        .cta {
+            transition: all 550ms ease-in-out;
+
+            &:after {
+                transition: all 550ms ease-in-out;
+            }
+
+            &:hover {
+                color: #85837D;
+
+                &:after {
+                    background: #85837D;
+                    width: 0;
+                }
+            }
+        }
+
+        .image-wrapper {
+            bottom: -120px;
+            left: 0;
+            margin: 0;
+            max-width: 20.6%;
+            opacity: 0;
+            position: absolute;
+            transition: all 550ms ease-in-out;
+
+            &.inview {
+                opacity: 1;
+            }
+        }
+    }
+}

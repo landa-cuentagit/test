@@ -1,0 +1,63 @@
+.block.privacy {
+    padding: 130px 30px ;
+    position: relative;
+
+    .logo {
+        display: block;
+        left: 24px;
+        max-width: 131px;
+        mix-blend-mode: exclusion;
+        position: absolute;
+        top: 12px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .holder {
+        margin: 0 auto;
+        max-width: 428px;
+        width: 100%;
+    }
+
+    .title {
+        color: #000000;
+        font-family: 'OptimaNovaLTProLight';
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .text {
+        color: #585858;
+        font-family: 'Switzer-Light';
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 33px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .block.privacy {
+        padding: 170px 30px 70px;
+
+        .logo {
+            left: 45px;
+            max-width: 155px;
+            top: 30px;
+        }
+
+        .holder {
+            max-width: 1182px;
+        }
+
+        .content {
+            margin: 0 auto;
+            max-width: 883px;
+            width: 100%;
+        }
+
+        .text {
+            padding-top: 41px;
+        }
+    }
+}
