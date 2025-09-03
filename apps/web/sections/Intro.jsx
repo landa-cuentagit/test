@@ -71,21 +71,21 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
     }, []);
 
     useEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-  
-      const handleScroll = () => {
-        const scrollTop = el.scrollTop;
-        const sectionHeight = el.clientHeight;
-        const totalHeight = el.scrollHeight - sectionHeight;
-  
-        const progress = scrollTop / totalHeight; // 0 a 1
-        const size = 100 + progress * 20; // de 100% a 120%
-        setBgSize(size);
-      };
-  
-      el.addEventListener("scroll", handleScroll);
-      return () => el.removeEventListener("scroll", handleScroll);
+        const el = ref.current;
+        if (!el) return;
+
+        const handleScroll = () => {
+            const scrollTop = el.scrollTop;
+            const sectionHeight = el.clientHeight;
+            const totalHeight = el.scrollHeight - sectionHeight;
+
+            const progress = scrollTop / totalHeight; // 0 a 1
+            const size = 100 + progress * 20; // de 100% a 120%
+            setBgSize(size);
+        };
+
+        el.addEventListener("scroll", handleScroll);
+        return () => el.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -94,15 +94,15 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
             className={`intro-section ${fadeIn ? "fade-in" : ""} ${
                 fadeOut ? "fade-out" : ""
             }`}
-      style={{
-        background: `url(${
-          isMobile
-            ? buildImages(intro_section.image_mobile.asset._ref).url()
-            : buildImages(intro_section.image_desktop.asset._ref).url()
-        })`,
-        backgroundSize: `${bgSize}%`, // tamaño dinámico
-        backgroundPosition: "center",
-      }}
+            style={{
+                background: `url(${
+                    isMobile
+                        ? buildImages(intro_section.image_mobile.asset._ref).url()
+                        : buildImages(intro_section.image_desktop.asset._ref).url()
+                })`,
+                backgroundSize: `${bgSize}%`, // tamaño dinámico
+                backgroundPosition: "center",
+            }}
         >
             <div className="scroll-indication">Scroll</div>
             <div className="scroll-area">
