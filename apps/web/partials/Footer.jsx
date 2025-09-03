@@ -182,7 +182,7 @@ const Footer = ({ template, contact_section }) => {
                                             <button type='submit'>
                                                 Submit
                                             </button>
-                                            <div className="extra-text">By clicking "submit", you agree to Landa's <a href='/privacy-policy'>Terms of use</a> and <a href='/privacy-policy'>Privacy Policy</a></div>
+                                            <div className="extra-text">By clicking "submit", you agree to Landa's {/*}<a href='/privacy-policy'>Terms of use</a> and{*/} <a href='/privacy-policy'>Privacy Policy</a></div>
                                         </div>
                                     </div>
                                 </Form>

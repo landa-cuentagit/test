@@ -96,7 +96,7 @@ footer {
         font-family: 'Switzer-Regular';
         font-size: 13px;
         line-height: 20px;
-        margin-top: 24px;
+        margin-top: 20px;
         max-width: 226px;
         opacity: 0;
         transition: all 550ms ease-in-out;
@@ -108,7 +108,7 @@ footer {
     }
 
     .newsletter-wrapper {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .newsletter-text {
@@ -214,7 +214,11 @@ footer {
 @media (min-width: 768px) {
 
     footer {
+        bottom: 0;
+        left: 0;
         padding: 67px 45px 41px;
+        position: fixed;
+        width: 100%;
 
         .float-icon {
             right: 45px;
@@ -372,6 +376,7 @@ footer {
         }
 
         .link {
+            line-height: 20px;
             position: relative;
             width: fit-content;
 

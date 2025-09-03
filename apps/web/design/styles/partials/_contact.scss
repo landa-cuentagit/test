@@ -55,6 +55,9 @@
     }
 
     input[type=text], input[type=number], textarea {
+        border-radius: 0; // Elimina esquinas redondeadas
+        -webkit-appearance: none; // Quita el estilo por defecto en iOS
+        appearance: none;
         background: transparent;
         border: none;
         border-bottom: 1px solid #989898;
@@ -170,6 +173,7 @@
         .input-flex.first {
 
             .input-container {
+                padding-top: 0;
 
                 &:first-child {
                     max-width: 290px;

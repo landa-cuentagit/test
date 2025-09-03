@@ -2,65 +2,40 @@
     font-family: 'OptimaNovaLTProLight';
     src: url('../fonts/OptimaNovaLTProLight.otf');
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: unset;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 @font-face {
     font-family: 'OptimaNovaLTProMedium';
     src: url('../fonts/OptimaNovaLTProMedium.otf');
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: unset;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 @font-face {
     font-family: 'OptimaNovaLTProRegular';
     src: url('../fonts/OptimaNovaLTProRegular.otf');
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: unset;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 @font-face {
     font-family: 'Switzer-Regular';
     src: url('../fonts/Switzer-Regular.otf');
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: unset;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 @font-face {
     font-family: 'Switzer-Light';
     src: url('../fonts/Switzer-Light.otf');
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: unset;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 * {
@@ -86,6 +61,7 @@ html {
     background: #F1EDE5;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 
     &.intro-is-inview {
         height: 100dvh;

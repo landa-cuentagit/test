@@ -1,7 +1,7 @@
+import { useEffect } from 'react'
+
 import Template from '../template/Template'
-
 import Cover from '../sections/Cover';
-
 import Footer from '../partials/Footer';
 
 import useInViewEffect from '../partials/Inview';
@@ -53,15 +53,27 @@ const Index = ({ page_settings, cover, contact_section }) => {
 
     useInViewEffect();
 
+    useEffect(() => {
+        let footer = document.querySelector('footer'),
+            footerHeight = footer.offsetHeight,
+            outerWrapper = document.querySelector('.outer-wrapper');
+
+        if(window.innerWidth > 767) {
+            outerWrapper.style.marginBottom = footerHeight + 'px';
+        }
+    }, [])
+
     return (
-        <Template
-            title={page_settings.title}
-            description={page_settings.description}
-            keywords={page_settings.keywords}
-        >
-            <Cover template='splash' cover_section={cover} />
+        <>
+            <Template
+                title={page_settings.title}
+                description={page_settings.description}
+                keywords={page_settings.keywords}
+            >
+                <Cover template='splash' cover_section={cover} />
+            </Template>
             <Footer template='splash' contact_section={contact_section} />
-        </Template>
+        </>
     );
 }
 

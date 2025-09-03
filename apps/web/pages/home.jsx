@@ -136,6 +136,16 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        let footer = document.querySelector('footer'),
+            footerHeight = footer.offsetHeight,
+            outerWrapper = document.querySelector('.outer-wrapper');
+
+        if(window.innerWidth > 767) {
+            outerWrapper.style.marginBottom = footerHeight + 'px';
+        }
+    }, [])
+
     return (
         <>
             <Intro intro_section={intro} />
@@ -150,9 +160,9 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                 <Destinations destinations_section={destinations_section} />
                 <Capabilities capabilities_section={capabilities_section} />
                 <About about_section={about_section} />
-                <Footer template='home' contact_section={contact_section} />
                 <div className="show-intro" />
             </Template>
+            <Footer template='home' contact_section={contact_section} />
         </>
     );
 }

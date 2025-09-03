@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import Template from '../template/Template'
 
 import Privacy from '../sections/Privacy';
@@ -51,16 +53,28 @@ export async function getServerSideProps() {
 const PrivacyTemplate = ({ page_settings, contact_section, privacy_section }) => {
 
     useInViewEffect();
+    
+        useEffect(() => {
+            let footer = document.querySelector('footer'),
+                footerHeight = footer.offsetHeight,
+                outerWrapper = document.querySelector('.outer-wrapper');
+    
+            if(window.innerWidth > 767) {
+                outerWrapper.style.marginBottom = footerHeight + 'px';
+            }
+        }, [])
 
     return (
-        <Template
-            title={page_settings.title}
-            description={page_settings.description}
-            keywords={page_settings.keywords}
-        >
-            <Privacy template='splash' privacy_section={privacy_section} />
+        <>
+            <Template
+                title={page_settings.title}
+                description={page_settings.description}
+                keywords={page_settings.keywords}
+                >
+                <Privacy template='splash' privacy_section={privacy_section} />
+            </Template>
             <Footer template='privacy' contact_section={contact_section} />
-        </Template>
+        </>
     );
 }
 
