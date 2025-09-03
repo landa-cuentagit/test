@@ -1,129 +1,134 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useEffect, forwardRef, useState } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers';
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) => {
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import "swiper/css/pagination";
-
-// import required modules
-import { EffectFade, Pagination } from 'swiper/modules';
-
-const Intro = ({ intro_section }) => {
-
-    const mainEffect = (event) => {
-
-        let section = document.querySelector('.block.intro'),
-            dummySectionOne = document.querySelector('.dummy-block.one'),
-            dummySectionTwo = document.querySelector('.dummy-block.two'),
-            dummySectionThree = document.querySelector('.dummy-block.three'),
-            allDotsOne = document.querySelectorAll('.block.intro .swiper-pagination span'),
-            dummyOne = dummySectionOne.getBoundingClientRect(),
-            dummyTwo = dummySectionTwo.getBoundingClientRect(),
-            dummyThree = dummySectionThree.getBoundingClientRect(),
-            html = document.querySelector('html'),
-            wrapperToEffect = document.querySelector('.wrapper-to-effect');
-
-        if (dummyOne.top <= window.innerHeight) {
-            section.style.top = 0;
-            section.style.position = 'fixed';
-        } else {
-            section.style.bottom = 'unset';
-            section.style.top = 0;
-            section.style.position = 'absolute';
-        }
-
-        if (dummyOne.top <= window.innerHeight && dummyTwo.top >= window.innerHeight) {
-            allDotsOne[0].click();
-        }
-        if (dummyTwo.top <= window.innerHeight && dummyThree.top >= window.innerHeight) {
-            allDotsOne[1].click();
-        }
-        if (dummyThree.top <= window.innerHeight) {
-            allDotsOne[2].click();
-        }
-        if (dummyThree.top <= window.innerHeight - 700) {
-            /*section.style.bottom = 0;
-            section.style.top = 'unset';
-            section.style.position = 'absolute';*/
-            setTimeout(() => {
-                html.classList.add('no-scroll');
-                wrapperToEffect.classList.add('going-hide');
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                    setTimeout(() => {
-                        html.classList.remove('no-scroll');
-                        const outerWrapper = document.querySelector('.outer-wrapper');
-                        outerWrapper.classList.remove('intro-is-inview');
-                    }, 750);
-                }, 750);
-            }, 750);
-        }
-    }
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [fadeOut, setFadeOut] = useState(false);
+    const [fadeIn, setFadeIn] = useState(false);
 
     useEffect(() => {
-        window.addEventListener('scroll', mainEffect)
-    }, [])
+
+        // Activar fade-in al montar o reaparecer
+        const timer = setTimeout(() => {
+            setFadeIn(true);
+
+            // Llamamos callback después del fade-in para scroll del sitio
+            if (onFadeInComplete) onFadeInComplete();
+        }, 50); // pequeño delay para animación CSS
+
+        return () => clearTimeout(timer);
+    }, [onFadeInComplete]);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+
+        const handleScroll = () => {
+            const scrollTop = el.scrollTop;
+            const sectionHeight = el.clientHeight;
+            const totalHeight = el.scrollHeight - sectionHeight;
+            const progress = scrollTop / totalHeight;
+
+            if (progress < 0.33) setActiveIndex(0);
+            else if (progress < 0.66) setActiveIndex(1);
+            else setActiveIndex(2);
+
+            if (progress >= 1 && !fadeOut) {
+                setFadeOut(true);
+                setFadeIn(false);
+
+                setTimeout(() => {
+                    // Llamamos onFinish para ocultar el intro
+                    if (onFinish) onFinish();
+
+                    // Restaurar scroll global
+                    document.body.style.overflow = "auto";
+                }, 1000); // coincide con la transición CSS
+            }
+        };
+
+        el.addEventListener("scroll", handleScroll);
+        return () => el.removeEventListener("scroll", handleScroll);
+    }, [fadeOut, onFinish, ref]);
+
+    const [isMobile, setIsMobile] = useState(false);
+  const [bgSize, setBgSize] = useState(100); // porcentaje inicial
+
+    useEffect(() => {
+
+        // Solo se ejecuta en el cliente
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize(); // set inicial
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+
+    }, []);
+
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+  
+      const handleScroll = () => {
+        const scrollTop = el.scrollTop;
+        const sectionHeight = el.clientHeight;
+        const totalHeight = el.scrollHeight - sectionHeight;
+  
+        const progress = scrollTop / totalHeight; // 0 a 1
+        const size = 100 + progress * 20; // de 100% a 120%
+        setBgSize(size);
+      };
+  
+      el.addEventListener("scroll", handleScroll);
+      return () => el.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <div className="wrapper-to-effect">
-            <section className="block intro">
-                <div
-                    className="background visible-xs"
-                    style={{
-                        background: `url(${buildImages(intro_section.image_mobile.asset._ref).url()})`
-                    }}
-                />
-                <div
-                    className="background hidden-xs"
-                    style={{
-                        background: `url(${buildImages(intro_section.image_desktop.asset._ref).url()})`
-                    }}
-                />
-                <div className="scroll-indication">Scroll</div>
-                <div className="holder">
-                    <div className="content">
-                        <div className="text-wrapper">
-                            <Swiper
-                                speed={750}
-                                spaceBetween={30}
-                                effect={'fade'}
-                                modules={[EffectFade, Pagination]}
-                                className="mySwiper"
-                                allowTouchMove={false} 
-                                    pagination={{
-                                    clickable: true,
-                                }}
-                            >
-                                <SwiperSlide>
-                                    <div className="text-one">
-                                        <PortableText value={intro_section.text1} />
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="text-two">
-                                        <PortableText value={intro_section.text2} />
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="text-three">
-                                        <PortableText value={intro_section.text3} />
-                                    </div>
-                                </SwiperSlide>
-                            </Swiper>
-                        </div>
+        <div
+            ref={ref}
+            className={`intro-section ${fadeIn ? "fade-in" : ""} ${
+                fadeOut ? "fade-out" : ""
+            }`}
+      style={{
+        background: `url(${
+          isMobile
+            ? buildImages(intro_section.image_mobile.asset._ref).url()
+            : buildImages(intro_section.image_desktop.asset._ref).url()
+        })`,
+        backgroundSize: `${bgSize}%`, // tamaño dinámico
+        backgroundPosition: "center",
+      }}
+        >
+            <div className="scroll-indication">Scroll</div>
+            <div className="scroll-area">
+                <div className="intro-text-container">
+                    <div
+                        key={0}
+                        className={`intro-text one ${0 === activeIndex ? "visible" : "no-visible"}`}
+                    >
+                        <PortableText value={intro_section.text1} />
+                    </div>
+                    <div
+                        key={1}
+                        className={`intro-text two ${1 === activeIndex ? "visible" : "no-visible"}`}
+                    >
+                        <PortableText value={intro_section.text2} />
+                    </div>
+                    <div
+                        key={2}
+                        className={`intro-text three ${2 === activeIndex ? "visible" : "no-visible"}`}
+                    >
+                        <PortableText value={intro_section.text3} />
                     </div>
                 </div>
-            </section>
-            <div className="dummy-block one"></div>
-            <div className="dummy-block two"></div>
-            <div className="dummy-block three"></div>
+            </div>
         </div>
     );
-}
+});
 
 export default Intro;

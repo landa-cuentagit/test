@@ -62,12 +62,6 @@ html {
     overflow: hidden;
     position: relative;
     z-index: 1;
-
-    &.intro-is-inview {
-        height: 100dvh;
-        position: fixed;
-        width: 100%;
-    }
 }
 
 .show-intro {

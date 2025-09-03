@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import Template from '../template/Template'
 
@@ -104,6 +104,25 @@ export async function getServerSideProps() {
 
 const Home = ({ page_settings, intro, cover, section_one, destinations_section, capabilities_section, about_section, contact_section }) => {
 
+    const [showIntro, setShowIntro] = useState(true);
+    const introRef = useRef(null);
+
+    // Revisamos si hay hash en la URL
+    useEffect(() => {
+        if (window.location.hash) {
+        // Si hay hash, no mostrar el intro automáticamente
+        setShowIntro(false);
+        }
+    }, []);
+
+    const handleShowIntro = () => {
+        
+        setShowIntro(true);
+
+        // Reiniciar scroll interno del intro
+        if (introRef.current) introRef.current.scrollTop = 0;
+    };
+
     useInViewEffect();
 
     const [activeSection, setActiveSection] = useState('');
@@ -148,7 +167,19 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
 
     return (
         <>
-            <Intro intro_section={intro} />
+            {showIntro && (
+                <Intro
+                    ref={introRef}
+                    onFadeInComplete={() => {
+                        // Scroll suave del sitio solo después del fade-in
+                        setTimeout(() => {
+                            window.scrollTo({ top: 0 });
+                        }, 750);
+                    }}
+                    intro_section={intro}
+                    onFinish={() => setShowIntro(false)}
+                />
+            )}
             <Template
                 title={page_settings.title}
                 description={page_settings.description}
@@ -160,7 +191,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                 <Destinations destinations_section={destinations_section} />
                 <Capabilities capabilities_section={capabilities_section} />
                 <About about_section={about_section} />
-                <div className="show-intro" />
+                <div className="show-intro" onClick={handleShowIntro} />
             </Template>
             <Footer template='home' contact_section={contact_section} />
         </>
