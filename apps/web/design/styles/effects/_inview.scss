@@ -50,11 +50,11 @@
 
 .text-effect, .waiting-text-effect {
     opacity: 0;
-    transform: translateY(20%) scale(0.98);
+    transform: translateY(20%);
     transition: all 750ms ease-in-out;
 
     &.apply-effect {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
