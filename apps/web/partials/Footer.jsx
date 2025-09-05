@@ -7,7 +7,7 @@ import { LandaIcon } from '../../../packages/ui'
 
 const Footer = ({ template, contact_section }) => {
 
-    const NewsletterSuccessMessage = useRef(null);
+    const NewsletterContactForm = useRef(null);
 
     const initalValuesNewsletter = {
         Email: ""
@@ -19,15 +19,15 @@ const Footer = ({ template, contact_section }) => {
 
     async function handleSubmitNewsletter(values, { resetForm }){
 
-        console.log('enviando');
+        NewsletterContactForm.current.classList.add('sent');
 
         setTimeout(() => {
             resetForm();
-            NewsletterSuccessMessage.current.classList.add('sent');
-        }, 2500);
+            NewsletterContactForm.current.classList.remove('sent');
+        }, 6000);
     }
 
-    const ContactSuccessMessage = useRef(null);
+    const ContactForm = useRef(null);
 
     const initalValuesContact = {
         Name: "",
@@ -49,12 +49,12 @@ const Footer = ({ template, contact_section }) => {
 
     async function handleSubmitContact(values, { resetForm }){
 
-        console.log('enviando');
+        ContactForm.current.classList.add('sent');
 
         setTimeout(() => {
             resetForm();
-            ContactSuccessMessage.current.classList.add('sent');
-        }, 2500);
+            ContactForm.current.classList.remove('sent');
+        }, 6000);
     }
 
     const textareaRef = useRef(null);
@@ -101,7 +101,11 @@ const Footer = ({ template, contact_section }) => {
                             onSubmit={handleSubmitContact}
                         >
                             {({errors, touched}) => (
-                                <Form className="contact-form">
+                                <Form className="contact-form" ref={ContactForm}>
+                                    <div className="contact-success-message">
+                                        <div>Message received, possibilities ahead.</div>
+                                        <div>Thank you for connecting with us. At Landa, every conversation is the beginning of something meaningful. We'll be in touch very soon.</div>
+                                    </div>
                                     <div className="wrapper-content-form">
                                         <div className="input-flex first">
                                             <div className="input-container flex text-effect">
@@ -188,10 +192,6 @@ const Footer = ({ template, contact_section }) => {
                                 </Form>
                             )}
                         </Formik>
-                        <div className="contact-success-message" ref={ContactSuccessMessage}>
-                            <div>Message received, possibilities ahead.</div>
-                            <div>Thank you for connecting with us. At Landa, every conversation is the beginning of something meaningful. We'll be in touch very soon.</div>
-                        </div>
                     </div>
                     <div className="newsletter-wrapper">
                         <div className="newsletter-text text-effect">{contact_section.newsletter_text}</div>
@@ -202,9 +202,10 @@ const Footer = ({ template, contact_section }) => {
                                 onSubmit={handleSubmitNewsletter}
                             >
                                 {({errors, touched}) => (
-                                    <Form className="contact-form">
+                                    <Form className="contact-form" ref={NewsletterContactForm}>
+                                        <div className="newsletter-success-message">Thank you for subscribing. We look forward to sharing inspiring updates with you.</div>
                                         <div className="wrapper-content-form">
-                                            <div className="input-container text-inview">
+                                            <div className="input-container no-top text-inview">
                                                 <Field
                                                     autoComplete='off'
                                                     type='text'
@@ -221,7 +222,6 @@ const Footer = ({ template, contact_section }) => {
                                     </Form>
                                 )}
                             </Formik>
-                            <div className="newsletter-success-message" ref={NewsletterSuccessMessage}>Thank you for subscribing. We look forward to sharing inspiring updates with you.</div>
                         </div>
                     </div>
                 </div>
@@ -250,24 +250,22 @@ const Footer = ({ template, contact_section }) => {
                 <div className="desktop-links">
                     <div className="left-links">
                         <div className="flex-content">
-                            <div className="left">
-                                <div className="left-column">
-                                    <a href={contact_section.instagram} target="_blank" rel="noopener noreferrer" className="link text-effect">Instagram</a>
-                                    <a href={contact_section.linkedin} target="_blank" rel="noopener noreferrer" className="link text-effect with-mt">Linkedin</a>
-                                </div>
-                                <div className="right-column">
-                                    <a target="_blank" rel="noopener noreferrer" href={`tel: ${contact_section.phone}`} className="link text-effect">T. {contact_section.phone}</a>
-                                    <a target="_blank" rel="noopener noreferrer" href={`mailto: ${contact_section.mail}`} className="link text-effect with-mt">{contact_section.mail}</a>
-                                </div>
+                            <div className="left-column">
+                                <a href={contact_section.instagram} target="_blank" rel="noopener noreferrer" className="link text-effect">Instagram</a>
+                                <a href={contact_section.linkedin} target="_blank" rel="noopener noreferrer" className="link text-effect with-mt">Linkedin</a>
                             </div>
-                            <div className="right">
-                                <div className="left-column">
-                                    <a target="_blank" rel="noopener noreferrer" href={contact_section.maps} className="link text-effect location">{contact_section.location}</a>
-                                </div>
-                                <div className="right-column">
-                                    <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
-                                </div>
+                            <div className="right-column">
+                                <a target="_blank" rel="noopener noreferrer" href={`tel: ${contact_section.phone}`} className="link text-effect">T. {contact_section.phone}</a>
+                                <a target="_blank" rel="noopener noreferrer" href={`mailto: ${contact_section.mail}`} className="link text-effect with-mt">{contact_section.mail}</a>
                             </div>
+                        </div>
+                    </div>
+                    <div className="center-links">
+                        <div className="left-column">
+                            <a target="_blank" rel="noopener noreferrer" href={contact_section.maps} className="link text-effect location">{contact_section.location}</a>
+                        </div>
+                        <div className="right-column">
+                            <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
                         </div>
                     </div>
                     <div className="right-links">

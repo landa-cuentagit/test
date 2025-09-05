@@ -22,13 +22,13 @@ const Cover = ({ template, cover_section }) => {
                         null
             }
             <div
-                className="background-one"
+                className="background-one image-effect"
                 style={{
                     background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
                 }}
             />
             <div
-                className="background-two"
+                className="background-two image-effect"
                 style={{
                     background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
                 }}

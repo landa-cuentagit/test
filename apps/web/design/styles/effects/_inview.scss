@@ -31,6 +31,15 @@
     }
 }
 
+.image-effect {
+    opacity: 0;
+    transition: all 750ms ease-in-out;
+
+    &.apply-effect {
+        opacity: 1;
+    }
+}
+
 .effect-to-left {
 
     p {
