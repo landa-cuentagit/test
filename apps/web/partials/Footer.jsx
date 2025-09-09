@@ -262,7 +262,10 @@ const Footer = ({ template, contact_section }) => {
                     </div>
                     <div className="center-links">
                         <div className="left-column">
-                            <a target="_blank" rel="noopener noreferrer" href={contact_section.maps} className="link text-effect location">{contact_section.location}</a>
+                            <a target="_blank" rel="noopener noreferrer" href={contact_section.maps} className="link text-effect location">
+                                {contact_section.location}
+                                <div className="subline" />
+                            </a>
                         </div>
                         <div className="right-column">
                             <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>

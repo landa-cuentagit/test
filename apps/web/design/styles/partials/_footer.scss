@@ -377,19 +377,48 @@ footer {
                     transition: width 550ms ease-in-out;
                     width: 100%;
                 }
-
-                &.location {
-
-                    &:after {
-                        width: calc(100% - 10px);
-                    }
-                }
             }
         }
 
         .location {
             max-width: 246px;
             padding-right: 46px;
+
+            .subline {
+                bottom: 0;
+                height: 0.7px;
+                left: 0;
+                position: absolute;
+                width: calc(100% - 46px);
+
+                &:after {
+                    background: #585858;
+                    bottom: 0;
+                    content: '';
+                    display: block;
+                    height: 0.7px;
+                    left: 100%;
+                    position: absolute;
+                    transition: all 550ms ease-in-out;
+                    width: 0;
+                }
+            }
+
+            &:hover {
+
+                .subline {
+
+                    &:after {
+                        left: 0;
+                        transition: width 550ms ease-in-out;
+                        width: 100%;
+                    }
+                }
+            }
+
+            &:after {
+                content: none;
+            }
         }
 
         .copyright {
