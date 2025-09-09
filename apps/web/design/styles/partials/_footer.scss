@@ -1,5 +1,5 @@
 footer {
-    background: #E0DBD1;
+    background: #E8E3D9;
     padding: 45px 20px;
     position: relative;
 
@@ -114,6 +114,10 @@ footer {
 
     .newsletter-form {
         padding-top: 23px;
+
+        button {
+            margin-top: 13px !important;
+        }
     }
 
     .newsletter-success-message {
@@ -203,6 +207,7 @@ footer {
 @media (min-width: 768px) {
 
     footer {
+        background: #E0DBD1;
         bottom: 0;
         left: 0;
         padding: 67px 45px 41px;
@@ -290,6 +295,10 @@ footer {
 
         .newsletter-form {
             padding-top: 24px;
+
+            button {
+                margin-top: 27px !important;
+            }
         }
 
         .newsletter-success-message {
@@ -436,6 +445,7 @@ footer {
         }
 
         .right-links {
+            align-items: flex-start;
             max-width: 357px;
             padding-left: 15px;
         }

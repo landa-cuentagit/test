@@ -1,21 +1,34 @@
+import { useEffect, useRef } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from "../util/Helpers";
-import Image from "next/image";
+import Lottie from "lottie-react";
 
-import { LandaLogo } from "../../../packages/ui";
+import { LandaAnimated } from "../../../packages/ui";
 
 const Cover = ({ template, cover_section }) => {
+
+    const lottieRef = useRef();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+        // inicia la animación después de 1s
+        lottieRef.current?.play();
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section className="block cover">
             {
                 (template === 'splash')
                     ?
                         <div className="logo">
-                            <Image
-                                alt="Landa"
-                                height={LandaLogo.height}
-                                src={LandaLogo.src}
-                                width={LandaLogo.width}
+                            <Lottie
+                                animationData={LandaAnimated}
+                                loop={false} // Solo una vez
+                                lottieRef={lottieRef}
+                                autoplay={true}
                             />
                         </div>
                     :

@@ -25,6 +25,7 @@
     "@sanity/image-url": "^1.1.0",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
+    "lottie-react": "^2.4.1",
     "next-sanity": "^10.0.14",
     "sass": "^1.90.0",
     "swiper": "^11.2.10",
