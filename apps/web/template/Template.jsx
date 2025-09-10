@@ -25,21 +25,21 @@ const Template = ({ children, title, description, keywords, template }) => {
                 <meta itemProp="name" content={title}/>
                 <meta itemProp="description" content={description}/>
                 <meta itemProp="url" content='https://landa-site.netlify.app/' />
-                <meta itemProp="image" content='https://landa-site.netlify.app/social.jpg'/>
+                <meta itemProp="image" content='https://landa-site.netlify.app/social.png'/>
 
                 <meta property="fb:app_id" content="app-id"/>
                 <meta property="og:site_name" content={title}/>
                 <meta property="og:title" content={title}/>
                 <meta property="og:description" content={description}/>
                 <meta property="og:url" content='https://landa-site.netlify.app/' />
-                <meta property="og:image" content='https://landa-site.netlify.app/social.jpg' />
+                <meta property="og:image" content='https://landa-site.netlify.app/social.png' />
                 <meta property="og:type" content="website"/>
 
                 <meta name="twitter:site" content={title}/>
                 <meta name="twitter:title" content={title}/>
                 <meta name="twitter:description" content={description}/>
                 <meta name="twitter:url" content='https://landa-site.netlify.app/' />
-                <meta name="twitter:image" content='https://landa-site.netlify.app/social.jpg' />
+                <meta name="twitter:image" content='https://landa-site.netlify.app/social.png' />
                 <meta name="twitter:card" content="summary"/>
 
                 <meta name="theme-color" content="#F1EDE5" />
