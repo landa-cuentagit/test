@@ -66,7 +66,7 @@ const Footer = ({ template, contact_section }) => {
     };
 
     return (
-        <footer className={`footer ${template}`} id='contact'>
+        <footer className={`footer ${template}`}>
             {
                 (template === 'splash' || template === 'privacy')
                     ?
@@ -243,7 +243,7 @@ const Footer = ({ template, contact_section }) => {
                             <div className="copyright text-effect">All rights reserved Landa® 2025</div>
                         </div>
                         <div className="right">
-                            <a href="/privacy-policy" className="link text-effect">Privacy Policy</a>
+                            <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
                         </div>
                     </div>
                 </div>
@@ -273,7 +273,7 @@ const Footer = ({ template, contact_section }) => {
                     </div>
                     <div className="right-links">
                         <div className="copyright text-effect">All rights reserved Landa® 2025</div>
-                        <a href="/privacy-policy" className="link text-effect">Privacy Policy</a>
+                        <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
                     </div>
                 </div>
             </div>

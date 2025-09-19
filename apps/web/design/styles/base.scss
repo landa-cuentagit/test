@@ -58,6 +58,10 @@ html {
     background-color: rgba(223, 216, 207, .8);   /* fondo de la selección */
 }
 
+.outer-wrapper.home, .navigation.home, .footer.home {
+    opacity: 0;
+}
+
 .outer-wrapper {
     background: #F1EDE5;
     overflow: hidden;
@@ -118,7 +122,12 @@ em {
         cursor: pointer;
         height: 16px;
         right: 45px;
+        transition: all 550ms ease-in-out;
         width: 30px;
+
+        &:hover {
+            transform: rotate(90deg);
+        }
     }
 
     .hidden-xs {

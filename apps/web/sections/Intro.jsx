@@ -1,8 +1,23 @@
 import { useEffect, forwardRef, useState } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers';
+import { useRef } from 'react'
+import Lottie from "lottie-react";
+
+import { LandaAnimated } from "../../../packages/ui";
 
 const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) => {
+
+    const lottieRef = useRef();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+        // inicia la animación después de 1s
+        lottieRef.current?.play();
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [fadeOut, setFadeOut] = useState(false);
@@ -54,7 +69,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
     }, [fadeOut, onFinish, ref]);
 
     const [isMobile, setIsMobile] = useState(false);
-  const [bgSize, setBgSize] = useState(100); // porcentaje inicial
+    const [scaleSize, setScaleSize] = useState(1); // porcentaje inicial
 
     useEffect(() => {
 
@@ -81,7 +96,8 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
 
             const progress = scrollTop / totalHeight; // 0 a 1
             const size = 100 + progress * 20; // de 100% a 120%
-            setBgSize(size);
+            const scaleValue = size / 100
+            setScaleSize(scaleValue);
         };
 
         el.addEventListener("scroll", handleScroll);
@@ -94,16 +110,26 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
             className={`intro-section ${fadeIn ? "fade-in" : ""} ${
                 fadeOut ? "fade-out" : ""
             }`}
-            style={{
-                background: `url(${
-                    isMobile
-                        ? buildImages(intro_section.image_mobile.asset._ref).url()
-                        : buildImages(intro_section.image_desktop.asset._ref).url()
-                })`,
-                backgroundSize: `${bgSize}%`, // tamaño dinámico
-                backgroundPosition: "center",
-            }}
         >
+            <div
+                className="background"
+                style={{
+                    background: `url(${
+                        isMobile
+                            ? buildImages(intro_section.image_mobile.asset._ref).url()
+                            : buildImages(intro_section.image_desktop.asset._ref).url()
+                    })`,
+                    transform: `scale(${scaleSize})`, // tamaño dinámico
+                }}
+            />
+            <div className="logo">
+                <Lottie
+                    animationData={LandaAnimated}
+                    loop={false} // Solo una vez
+                    lottieRef={lottieRef}
+                    autoplay={true}
+                />
+            </div>
             <div className="scroll-indication">Scroll</div>
             <div className="scroll-area">
                 <div className="intro-text-container">

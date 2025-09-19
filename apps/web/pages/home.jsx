@@ -156,6 +156,18 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
     }, []);
 
     useEffect(() => {
+        let outerWrapper = document.querySelector('.outer-wrapper'),
+            navigation = document.querySelector('.navigation'),
+            footer = document.querySelector('.footer');
+
+        setTimeout(() => {
+            outerWrapper.style.opacity = '1';
+            navigation.style.opacity = '1';
+            footer.style.opacity = '1';
+        }, 2500);
+    }, [])
+
+    useEffect(() => {
         let footer = document.querySelector('footer'),
             footerHeight = footer.offsetHeight,
             outerWrapper = document.querySelector('.outer-wrapper');
@@ -180,17 +192,19 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                     onFinish={() => setShowIntro(false)}
                 />
             )}
+            <Navigation showIntro={showIntro} contact_info={contact_section} template='home' activeSection={activeSection} />
             <Template
                 title={page_settings.title}
                 description={page_settings.description}
                 keywords={page_settings.keywords}
+                template='home'
             >
-                <Navigation contact_info={contact_section} template='home' activeSection={activeSection} />
                 <Cover template='home' cover_section={cover} />
                 <SectionOne section_one={section_one} />
                 <Destinations destinations_section={destinations_section} />
                 <Capabilities capabilities_section={capabilities_section} />
                 <About about_section={about_section} />
+                <div id='contact' />
                 <div className="show-intro" onClick={handleShowIntro} />
             </Template>
             <Footer template='home' contact_section={contact_section} />

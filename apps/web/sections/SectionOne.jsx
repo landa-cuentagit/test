@@ -5,19 +5,31 @@ import { useEffect, useRef } from "react";
 
 const SectionOne = ({ section_one }) => {
 
-    const ImageWrapper = useRef(null)
+    const ImageWrapperOne = useRef(null),
+            ImageWrapperTwo = useRef(null),
+            ImageWrapperThree = useRef(null);
 
     useEffect(() => {
         const allStrongs = document.querySelectorAll('.block.section-one strong');
 
         if(allStrongs) {
 
-            allStrongs.forEach(strong => {
+            allStrongs.forEach((strong, index) => {
                 strong.addEventListener('mouseover', () => {
-                    ImageWrapper.current.classList.add('inview');
+                    if(index === 0) {
+                        ImageWrapperOne.current.classList.add('inview');
+                    }
+                    if(index === 1) {
+                        ImageWrapperTwo.current.classList.add('inview');
+                    }
+                    if(index === 2) {
+                        ImageWrapperThree.current.classList.add('inview');
+                    }
                 })
                 strong.addEventListener('mouseleave', () => {
-                    ImageWrapper.current.classList.remove('inview');
+                    ImageWrapperOne.current.classList.remove('inview');
+                    ImageWrapperTwo.current.classList.remove('inview');
+                    ImageWrapperThree.current.classList.remove('inview');
                 })
             })
         }
@@ -34,12 +46,45 @@ const SectionOne = ({ section_one }) => {
                         <a href="#contact" className="cta simple-effect">{section_one.cta_text}</a>
                     </div>
 
-                    <div className="image-wrapper" ref={ImageWrapper}>
+                    <div className="image-wrapper visible-xs" ref={ImageWrapperOne}>
                         <div className="image">
                             <Image
                                 alt="Landa"
                                 height={163}
                                 src={buildImages(section_one.image1.asset._ref).url()}
+                                width={262}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="image-wrapper hidden-xs" ref={ImageWrapperOne}>
+                        <div className="image">
+                            <Image
+                                alt="Landa"
+                                height={163}
+                                src={buildImages(section_one.image1.asset._ref).url()}
+                                width={262}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="image-wrapper hidden-xs" ref={ImageWrapperTwo}>
+                        <div className="image">
+                            <Image
+                                alt="Landa"
+                                height={163}
+                                src={buildImages(section_one.image2.asset._ref).url()}
+                                width={262}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="image-wrapper hidden-xs" ref={ImageWrapperThree}>
+                        <div className="image">
+                            <Image
+                                alt="Landa"
+                                height={163}
+                                src={buildImages(section_one.image3.asset._ref).url()}
                                 width={262}
                             />
                         </div>

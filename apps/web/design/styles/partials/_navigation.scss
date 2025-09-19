@@ -129,8 +129,9 @@
     span {
         display: block;
         overflow: hidden;
-        transition: all 550ms ease-in-out;
+        transition: all 600ms ease-in-out;
         width: 0;
+        will-change: transform;
     }
 
     &:first-child {

@@ -1,6 +1,4 @@
 .intro-section {
-    background-position: center !important;
-    background-repeat: no-repeat !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -12,6 +10,26 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 750ms ease;
+
+    .background {
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        height: 100%;
+        left: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .logo {
+        left: 22px;
+        max-width: 131px;
+        position: fixed;
+        top: 26px;
+        width: 100%;
+    }
 }
 
 .scroll-indication {
@@ -87,20 +105,19 @@
     opacity: 0;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
 
     .intro-section {
-        background-size: cover !important;
-    }
-}
 
-@media (min-width: 768px) {
+        .logo {
+            left: 45px;
+            max-width: 156px;
+            top: 30px;
+        }
+    }
 
     .intro-text {
         font-size: 20px;
-    }
-
-    .intro-text {
         padding: 0;
 
         &.one {
