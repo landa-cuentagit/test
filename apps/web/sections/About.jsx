@@ -28,7 +28,7 @@ const About = ({ about_section }) => {
     };
 
     return (
-        <section className="block about" id="about">
+        <section className="block about">
             <div className="holder">
                 <div className="header">
                     <div className="header-content simple-effect">

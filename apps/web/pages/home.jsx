@@ -204,6 +204,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                 <SectionOne section_one={section_one} />
                 <Destinations destinations_section={destinations_section} />
                 <Capabilities capabilities_section={capabilities_section} />
+                <div id='about' />
                 <About about_section={about_section} />
                 <div id='contact' />
                 <div className="show-intro" onClick={handleShowIntro} />
