@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import Template from '../template/Template'
 import Cover from '../sections/Cover';
-import Footer from '../partials/Footer';
+import Footer from '../partials/FooterSplash';
 
 import useInViewEffect from '../partials/Inview';
 
