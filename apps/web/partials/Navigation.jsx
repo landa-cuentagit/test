@@ -100,24 +100,24 @@ const Navigation = ({ contact_info, template, activeSection }) => {
             <div className="list-wrapper mobile" ref={ListWrapper}>
                 <div className="list-holder">
                     <a
-                        href={(template === 'home') ? `#${sections[0]}` : `/#${sections[0]}` }
-                        onClick={expandMenu}
-                            className={`opt btn-effect ${activeSection === sections[0] ? 'active' : ''}`}
-                    >Desti<span>—</span>nations</a>
-                    <a
-                        href={(template === 'home') ? `#${sections[1]}` : `/#${sections[1]}` }
-                        onClick={expandMenu}
-                            className={`opt btn-effect ${activeSection === sections[1] ? 'active' : ''}`}
-                    >Capa<span>—</span>bilities</a>
-                    <a
                         href={(template === 'home') ? `#${sections[2]}` : `/#${sections[2]}` }
                         onClick={expandMenu}
                             className={`opt btn-effect ${activeSection === sections[2] ? 'active' : ''}`}
-                    >A<span>—</span>bout</a>
+                    >Desti<span>—</span>nations</a>
                     <a
                         href={(template === 'home') ? `#${sections[3]}` : `/#${sections[3]}` }
                         onClick={expandMenu}
                             className={`opt btn-effect ${activeSection === sections[3] ? 'active' : ''}`}
+                    >Capa<span>—</span>bilities</a>
+                    <a
+                        href={(template === 'home') ? `#${sections[4]}` : `/#${sections[4]}` }
+                        onClick={expandMenu}
+                            className={`opt btn-effect ${activeSection === sections[4] ? 'active' : ''}`}
+                    >A<span>—</span>bout</a>
+                    <a
+                        href={(template === 'home') ? `#${sections[5]}` : `/#${sections[5]}` }
+                        onClick={expandMenu}
+                            className={`opt btn-effect ${activeSection === sections[5] ? 'active' : ''}`}
                     >Con<span>—</span>tact</a>
                 </div>
                 <div className="social-links">
