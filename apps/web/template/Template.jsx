@@ -27,13 +27,20 @@ const Template = ({ children, title, description, keywords, template }) => {
                 <meta itemProp="url" content='https://landa-site.netlify.app/' />
                 <meta itemProp="image" content='https://landa-site.netlify.app/social.png'/>
 
+                <meta property="og:type" content="website"/>
                 <meta property="fb:app_id" content="app-id"/>
                 <meta property="og:site_name" content={title}/>
                 <meta property="og:title" content={title}/>
                 <meta property="og:description" content={description}/>
                 <meta property="og:url" content='https://landa-site.netlify.app/' />
                 <meta property="og:image" content='https://landa-site.netlify.app/social.png' />
-                <meta property="og:type" content="website"/>
+
+                {/* Asegúrate que esta imagen exista y cumpla 1200x630 */}
+                <meta property="og:image:secure_url" content="https://landa-site.netlify.app/social.png" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="5000" />
+                <meta property="og:image:height" content="2617" />
+                <meta property="og:image:alt" content="Landa" />
 
                 <meta name="twitter:site" content={title}/>
                 <meta name="twitter:title" content={title}/>

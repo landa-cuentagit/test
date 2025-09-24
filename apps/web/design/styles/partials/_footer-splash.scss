@@ -1,5 +1,5 @@
 .footer-splash {
-    background: #E8E3D9;
+    background: #F1EDE5;
     padding: 39px 20px;
     position: relative;
 
@@ -146,7 +146,7 @@
             bottom: 58px;
             left: 42.65%;
             margin-top: 0;
-            max-width: 22.75%;
+            max-width: 22.5%;
             position: absolute;
             width: 100%;
         }
@@ -171,6 +171,7 @@
         }
 
         .contact-form button[type=submit] {
+            letter-spacing: 0 !important;
             margin: 0 !important;
 
             &:after {
