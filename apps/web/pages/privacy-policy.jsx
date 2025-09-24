@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import Template from '../template/Template'
 
+import Navigation from '../partials/Navigation';
 import Privacy from '../sections/Privacy';
 import Footer from '../partials/Footer';
 
@@ -66,6 +67,7 @@ const PrivacyTemplate = ({ page_settings, contact_section, privacy_section }) =>
 
     return (
         <>
+            <Navigation showIntro={false} contact_info={contact_section} template='privacy' activeSection={null} />
             <Template
                 title={page_settings.title}
                 description={page_settings.description}

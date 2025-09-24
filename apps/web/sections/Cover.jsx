@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from "../util/Helpers";
 import Lottie from "lottie-react";
@@ -18,8 +18,25 @@ const Cover = ({ template, cover_section }) => {
         return () => clearTimeout(timer);
     }, []);
 
+    const ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // si ya scrolleaste al menos el alto de la ventana → esconder
+            setIsVisible(window.scrollY >= window.innerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <section className="block cover">
+        <section
+            ref={ref}
+            className={`block cover ${(template === 'splash') ? 'cover-splash' : ''} ${!isVisible ? "" : "no-visible"}`}
+            id="portada"
+        >
             {
                 (template === 'splash')
                     ?
@@ -35,13 +52,13 @@ const Cover = ({ template, cover_section }) => {
                         null
             }
             <div
-                className="background-one image-effect"
+                className={`background-one ${(template === 'home') ?'wait-image-effect' : 'image-effect'}`}
                 style={{
                     background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
                 }}
             />
             <div
-                className="background-two image-effect"
+                className={`background-two ${(template === 'home') ?'wait-image-effect' : 'image-effect'}`}
                 style={{
                     background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
                 }}
@@ -49,7 +66,7 @@ const Cover = ({ template, cover_section }) => {
             <div className="holder">
                 <div className="content">
                     <div className="text-wrapper">
-                        <div className="text text-effect">
+                        <div className={`text ${(template === 'home') ? 'wait-text-effect' : 'text-effect'}`}>
                             <PortableText value={cover_section.text} />
                         </div>
                     </div>

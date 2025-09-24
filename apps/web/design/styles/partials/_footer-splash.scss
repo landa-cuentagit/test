@@ -264,9 +264,9 @@
             .subline {
                 bottom: 0;
                 height: 0.7px;
-                left: 0;
+                left: 10px;
                 position: absolute;
-                width: calc(100% - 46px);
+                width: calc(100% - 10px);
 
                 &:after {
                     background: #585858;

@@ -45,12 +45,23 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
             const sectionHeight = el.clientHeight;
             const totalHeight = el.scrollHeight - sectionHeight;
             const progress = scrollTop / totalHeight;
+            let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
+                allTextWaiting = document.querySelectorAll('.wait-text-effect')
 
             if (progress < 0.33) setActiveIndex(0);
             else if (progress < 0.66) setActiveIndex(1);
             else setActiveIndex(2);
 
             if (progress >= 1 && !fadeOut) {
+
+                allImagesWaiting.forEach(image => {
+                    image.classList.add('apply-effect')
+                })
+
+                allTextWaiting.forEach(text => {
+                    text.classList.add('apply-effect')
+                })
+
                 setFadeOut(true);
                 setFadeIn(false);
 

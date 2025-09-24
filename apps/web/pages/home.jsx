@@ -132,13 +132,14 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         const outerWrapper = document.querySelector('.outer-wrapper');
         outerWrapper.classList.add('intro-is-inview');
 
-        const sectionIds = ['destinations', 'capabilities', 'about',  'contact'];
+        const sectionIds = ['portada', 'section-one', 'destinations', 'capabilities', 'about',  'contact'];
         const sections = sectionIds.map((id) => document.getElementById(id));
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        console.log(entry.target.id)
                         setActiveSection(entry.target.id);
                     }
                 });

@@ -36,7 +36,7 @@ const SectionOne = ({ section_one }) => {
     }, [])
 
     return (
-        <section className="block section-one">
+        <section className="block section-one" id="section-one">
             <div className="holder">
                 <div className="content">
                     <div className="text-wrapper">

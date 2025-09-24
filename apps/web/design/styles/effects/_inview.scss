@@ -31,7 +31,7 @@
     }
 }
 
-.image-effect {
+.image-effect, .wait-image-effect {
     opacity: 0;
     transition: all 750ms ease-in-out;
 
@@ -57,7 +57,7 @@
     }
 }
 
-.text-effect, .waiting-text-effect {
+.text-effect, .wait-text-effect {
     opacity: 0;
     transform: translateY(20%);
     transition: all 750ms ease-in-out;
