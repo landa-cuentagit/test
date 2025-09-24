@@ -57,7 +57,7 @@ const Capabilities = ({ capabilities_section }) => {
     }, []);
 
     return (
-        <section className="block capabilities" id='capabilities'>
+        <section className="block capabilities">
             <div className="holder">
                 <div className="header">
                     <div className="header-content simple-effect">

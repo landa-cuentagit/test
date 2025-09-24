@@ -200,9 +200,13 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                 keywords={page_settings.keywords}
                 template='home'
             >
+                <div id='portada' />
                 <Cover template='home' cover_section={cover} />
+                <div id='section-one' />
                 <SectionOne section_one={section_one} />
+                <div id='destinations' />
                 <Destinations destinations_section={destinations_section} />
+                <div id='capabilities' />
                 <Capabilities capabilities_section={capabilities_section} />
                 <div id='about' />
                 <About about_section={about_section} />

@@ -48,7 +48,7 @@ const Destinations = ({ destinations_section }) => {
     }, [swiperActiveIndex]);
 
     return (
-        <section className="block destinations" id="destinations">
+        <section className="block destinations">
             <div className="holder">
                 <div className="header">
                     <div className="header-content text-effect">

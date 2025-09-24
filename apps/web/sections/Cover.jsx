@@ -8,6 +8,11 @@ import { LandaAnimated } from "../../../packages/ui";
 const Cover = ({ template, cover_section }) => {
 
     const lottieRef = useRef();
+    const [hash, setHash] = useState('')
+
+    useEffect(() => (
+        setHash(window.location.hash)
+    ), [])
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -35,7 +40,6 @@ const Cover = ({ template, cover_section }) => {
         <section
             ref={ref}
             className={`block cover ${(template === 'splash') ? 'cover-splash' : ''} ${!isVisible ? "" : "no-visible"}`}
-            id="portada"
         >
             {
                 (template === 'splash')
@@ -52,13 +56,13 @@ const Cover = ({ template, cover_section }) => {
                         null
             }
             <div
-                className={`background-one ${(template === 'home') ?'wait-image-effect' : 'image-effect'}`}
+                className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
                 style={{
                     background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
                 }}
             />
             <div
-                className={`background-two ${(template === 'home') ?'wait-image-effect' : 'image-effect'}`}
+                className={`background-two ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
                 style={{
                     background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
                 }}
@@ -66,7 +70,7 @@ const Cover = ({ template, cover_section }) => {
             <div className="holder">
                 <div className="content">
                     <div className="text-wrapper">
-                        <div className={`text ${(template === 'home') ? 'wait-text-effect' : 'text-effect'}`}>
+                        <div className={`text ${(template === 'home' && hash === '') ? 'wait-text-effect' : (template === 'splash') ? 'text-effect' : '' }`}>
                             <PortableText value={cover_section.text} />
                         </div>
                     </div>
