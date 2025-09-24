@@ -9,6 +9,10 @@ const SectionOne = ({ section_one }) => {
             ImageWrapperTwo = useRef(null),
             ImageWrapperThree = useRef(null);
 
+    const ImageWrapperOneMobile = useRef(null),
+            ImageWrapperTwoMobile = useRef(null),
+            ImageWrapperThreeMobile = useRef(null);
+
     useEffect(() => {
         const allStrongs = document.querySelectorAll('.block.section-one strong');
 
@@ -31,6 +35,26 @@ const SectionOne = ({ section_one }) => {
                     ImageWrapperTwo.current.classList.remove('inview');
                     ImageWrapperThree.current.classList.remove('inview');
                 })
+
+                if (window.innerWidth < 768) {
+                    strong.addEventListener('click', () => {
+                        if(index === 0) {
+                            ImageWrapperOneMobile.current.classList.add('inview');
+                            ImageWrapperTwoMobile.current.classList.remove('inview');
+                            ImageWrapperThreeMobile.current.classList.remove('inview');
+                        }
+                        if(index === 1) {
+                            ImageWrapperOneMobile.current.classList.remove('inview');
+                            ImageWrapperTwoMobile.current.classList.add('inview');
+                            ImageWrapperThreeMobile.current.classList.remove('inview');
+                        }
+                        if(index === 2) {
+                            ImageWrapperOneMobile.current.classList.remove('inview');
+                            ImageWrapperTwoMobile.current.classList.remove('inview');
+                            ImageWrapperThreeMobile.current.classList.add('inview');
+                        }
+                    })
+                }
             })
         }
     }, [])
@@ -46,12 +70,34 @@ const SectionOne = ({ section_one }) => {
                         <a href="#contact" className="cta simple-effect">{section_one.cta_text}</a>
                     </div>
 
-                    <div className="image-wrapper visible-xs" ref={ImageWrapperOne}>
+                    <div className="image-wrapper one visible-xs inview" ref={ImageWrapperOneMobile}>
                         <div className="image">
                             <Image
                                 alt="Landa"
                                 height={163}
                                 src={buildImages(section_one.image1.asset._ref).url()}
+                                width={262}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="image-wrapper two visible-xs" ref={ImageWrapperTwoMobile}>
+                        <div className="image">
+                            <Image
+                                alt="Landa"
+                                height={163}
+                                src={buildImages(section_one.image2.asset._ref).url()}
+                                width={262}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="image-wrapper three visible-xs" ref={ImageWrapperThreeMobile}>
+                        <div className="image">
+                            <Image
+                                alt="Landa"
+                                height={163}
+                                src={buildImages(section_one.image3.asset._ref).url()}
                                 width={262}
                             />
                         </div>
