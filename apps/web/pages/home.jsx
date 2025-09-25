@@ -196,7 +196,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
             <Navigation showIntro={showIntro} contact_info={contact_section} template='home' activeSection={activeSection} />
             <Template
                 title={page_settings.title}
-                description={page_settings.description}
+                description={page_settings.metadescription}
                 keywords={page_settings.keywords}
                 template='home'
             >

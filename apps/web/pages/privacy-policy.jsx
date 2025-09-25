@@ -70,7 +70,7 @@ const PrivacyTemplate = ({ page_settings, contact_section, privacy_section }) =>
             <Navigation showIntro={false} contact_info={contact_section} template='privacy' activeSection={null} />
             <Template
                 title={page_settings.title}
-                description={page_settings.description}
+                description={page_settings.metadescription}
                 keywords={page_settings.keywords}
                 >
                 <Privacy template='splash' privacy_section={privacy_section} />

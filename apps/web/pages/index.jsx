@@ -67,7 +67,7 @@ const Index = ({ page_settings, cover, contact_section }) => {
         <>
             <Template
                 title={page_settings.title}
-                description={page_settings.description}
+                description={page_settings.metadescription}
                 keywords={page_settings.keywords}
             >
                 <Cover template='splash' cover_section={cover} />
