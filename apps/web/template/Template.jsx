@@ -38,8 +38,8 @@ const Template = ({ children, title, description, keywords, template }) => {
                 {/* Asegúrate que esta imagen exista y cumpla 1200x630 */}
                 <meta property="og:image:secure_url" content="https://landa-site.netlify.app/social.png" />
                 <meta property="og:image:type" content="image/png" />
-                <meta property="og:image:width" content="5000" />
-                <meta property="og:image:height" content="2617" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 <meta property="og:image:alt" content="Landa" />
 
                 <meta name="twitter:site" content={title}/>
