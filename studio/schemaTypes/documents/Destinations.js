@@ -75,6 +75,11 @@ export default {
                         name: 'image',
                         title: 'Image (2844px × 1200px)',
                         type: 'image'
+                    },
+                    {
+                        name: 'image_mobile',
+                        title: 'Image Mobile (1100px × 1368px)',
+                        type: 'image'
                     }
                 ]
             }]

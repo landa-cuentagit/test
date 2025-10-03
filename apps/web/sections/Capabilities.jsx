@@ -130,12 +130,23 @@ const Capabilities = ({ capabilities_section }) => {
                                             </div>
                                             <div className="item-content">
                                                 <div className="item-desc">
-                                                    <div
-                                                        className="image-mobile simple-effect visible-xs"
-                                                        style={{
-                                                            background: `url(${buildImages(capability.image.asset._ref).url()})`
-                                                        }}
-                                                    />
+                                                    {
+                                                        (capability.image_mobile)
+                                                            ?
+                                                                <div
+                                                                    className="image-mobile simple-effect visible-xs"
+                                                                    style={{
+                                                                        background: `url(${buildImages(capability.image_mobile.asset._ref).url()})`
+                                                                    }}
+                                                                />
+                                                            :
+                                                                <div
+                                                                    className="image-mobile simple-effect visible-xs"
+                                                                    style={{
+                                                                        background: `url(${buildImages(capability.image.asset._ref).url()})`
+                                                                    }}
+                                                                />
+                                                    }
                                                     <div className="capability-text-one text-effect">{capability.text1}</div>
                                                     <div className="capability-text-two text-effect">
                                                         <PortableText value={capability.text2} />

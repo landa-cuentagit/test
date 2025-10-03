@@ -121,9 +121,15 @@ const Destinations = ({ destinations_section }) => {
                                 destinations_section.all_destinations.map((destiny, index) => (
                                     <SwiperSlide className="destiny" key={index}>
                                         <div
-                                            className="destiny-background"
+                                            className="destiny-background hidden-xs"
                                             style={{
                                                 background: `url(${buildImages(destiny.image.asset._ref).url()})`
+                                            }}
+                                        />
+                                        <div
+                                            className="destiny-background visible-xs"
+                                            style={{
+                                                background: `url(${buildImages(destiny.image_mobile.asset._ref).url()})`
                                             }}
                                         />
                                         <div className="destiny-name">{destiny.destiny_name}</div>
