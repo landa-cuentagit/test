@@ -21,10 +21,32 @@ const Footer = ({ template, contact_section }) => {
 
         NewsletterContactForm.current.classList.add('sent');
 
-        setTimeout(() => {
-            resetForm();
-            NewsletterContactForm.current.classList.remove('sent');
-        }, 6000);
+        try {
+            const endpoint = `https://www.goplek.com/mailer/send-mail-v1.php`;
+            const res = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `data=${JSON.stringify({
+                    host: "landa.com.mx",
+                    data: values,
+                })}`,
+            });
+            const data = await res.text();
+
+            setTimeout(() => {
+                resetForm();
+                NewsletterContactForm.current.classList.remove('sent');
+            }, 6000);
+        } catch (error) {
+            console.log(error)
+
+            setTimeout(() => {
+                setTimeout(() => {
+                    resetForm();
+                    NewsletterContactForm.current.classList.remove('sent');
+                }, 2000);
+            }, 1250);
+        }
     }
 
     const ContactForm = useRef(null);
@@ -51,10 +73,32 @@ const Footer = ({ template, contact_section }) => {
 
         ContactForm.current.classList.add('sent');
 
-        setTimeout(() => {
-            resetForm();
-            ContactForm.current.classList.remove('sent');
-        }, 6000);
+        try {
+            const endpoint = `https://www.goplek.com/mailer/send-mail-v1.php`;
+            const res = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `data=${JSON.stringify({
+                    host: "landa.com.mx",
+                    data: values,
+                })}`,
+            });
+            const data = await res.text();
+
+            setTimeout(() => {
+                resetForm();
+                NewsletterContactForm.current.classList.remove('sent');
+            }, 6000);
+        } catch (error) {
+            console.log(error)
+
+            setTimeout(() => {
+                setTimeout(() => {
+                    resetForm();
+                    NewsletterContactForm.current.classList.remove('sent');
+                }, 2000);
+            }, 1250);
+        }
     }
 
     const textareaRef = useRef(null);
