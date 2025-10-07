@@ -3,8 +3,8 @@ import Head from 'next/head'
 
 const Template = ({ children, title, description, keywords, template }) => {
 
-    const siteUrl = "https://landa-site.netlify.app/";
-    const img = "https://landa-site.netlify.app/social.png"; // asegúrate 1200x630, PNG/JPG, pública
+    const siteUrl = "https://landa.com.mx/";
+    const img = "https://landa.com.mx/social.png"; // asegúrate 1200x630, PNG/JPG, pública
 
     return (
         <>
@@ -17,7 +17,7 @@ const Template = ({ children, title, description, keywords, template }) => {
                 <meta name="description" content={description} />
                 {keywords && <meta name="keywords" content={keywords} />}
                 <meta name="author" content="Goplek" />
-                {/* <meta name="robots" content="index, follow" /> */}
+                <meta name="robots" content="index, follow" />
 
                 {/* Evita href vacío; si no tienes alternates aún, quita esta línea */}
                 {/* <link rel="alternate" hrefLang="es" href={siteUrl} /> */}
