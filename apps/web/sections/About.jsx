@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers'
+import TypingRotator from "../partials/TypingRotator";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -129,7 +130,24 @@ const About = ({ about_section }) => {
                         </div>
                     </div>
                     <div className="text-three text-effect">
-                        <PortableText value={about_section.text3} />
+                        We are redefining what it means to <br/>
+                        <TypingRotator
+                            sentences={[    
+                                'rediscover',
+                                'explore',
+                                'reimagine',
+                                'experience',
+                                'reawaken',
+                                'feel',
+                                'connect with',
+                                'honor',
+                                'understand',
+                                'regenerate'
+                            ]}
+                            speed={100}
+                            pauseSteps={15}
+                            className="typing"
+                        /> the world.
                     </div>
                     <a href="#contact" className="cta simple-effect">{about_section.cta_text}</a>
                 </div>

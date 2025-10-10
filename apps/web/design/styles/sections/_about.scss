@@ -1,3 +1,13 @@
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.typing .cursor {
+    animation: blink 1s steps(2, start) infinite;
+    display: inline-block;
+    margin-left: 2px;
+}
+
 .block.about {
     padding: 60px 22px;
     position: relative;
@@ -184,11 +194,11 @@
         line-height: 30px;
         margin: 0 auto;
         margin-top: 93px;
-        max-width: 270px;
+        max-width: 100%;
         text-align: center;
         width: 100%;
 
-        strong {
+        .sentence {
             font-family: 'OptimaNovaLTProRegular';
         }
     }
