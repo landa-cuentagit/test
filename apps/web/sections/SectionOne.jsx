@@ -75,7 +75,7 @@ const SectionOne = ({ section_one }) => {
                             {
                                 (section_one.videoUrlOne)
                                     ?
-                                        <video src={section_one.videoUrlOne} loop muted autoPlay />
+                                        <video src={section_one.videoUrlOne} loop muted playsInline autoPlay />
                                     :
                                         <Image
                                             alt="Landa"
@@ -92,7 +92,7 @@ const SectionOne = ({ section_one }) => {
                             {
                                 (section_one.videoUrlTwo)
                                     ?
-                                        <video src={section_one.videoUrlTwo} loop muted autoPlay />
+                                        <video src={section_one.videoUrlTwo} loop muted playsInline autoPlay />
                                     :
                                         <Image
                                             alt="Landa"
@@ -109,7 +109,7 @@ const SectionOne = ({ section_one }) => {
                             {
                                 (section_one.videoUrlThree)
                                     ?
-                                        <video src={section_one.videoUrlThree} loop muted autoPlay />
+                                        <video src={section_one.videoUrlThree} loop muted playsInline autoPlay />
                                     :
                                         <Image
                                             alt="Landa"

@@ -139,7 +139,7 @@ const Capabilities = ({ capabilities_section }) => {
                                                     {
                                                         (capability.videoUrl)
                                                             ?
-                                                                <video className='simple-effect visible-xs' src={capability.videoUrl} muted autoPlay loop />
+                                                                <video className='simple-effect visible-xs' src={capability.videoUrl} playsInline muted autoPlay loop />
                                                             :
                                                                 (capability.image_mobile)
                                                                     ?

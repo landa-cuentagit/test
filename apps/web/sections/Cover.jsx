@@ -59,7 +59,7 @@ const Cover = ({ template, cover_section }) => {
                 (cover_section.videoUrlOne)
                     ?
                         <div className="video-wrapper-one">
-                            <video src={cover_section.videoUrlOne} autoPlay muted loop />
+                            <video src={cover_section.videoUrlOne} autoPlay playsInline muted loop />
                         </div>
                     :
                         <div
@@ -73,7 +73,7 @@ const Cover = ({ template, cover_section }) => {
                 (cover_section.videoUrlTwo)
                     ?
                         <div className="video-wrapper-two">
-                            <video src={cover_section.videoUrlTwo} autoPlay muted loop />
+                            <video src={cover_section.videoUrlTwo} autoPlay playsInline muted loop />
                         </div>
                     :
                         <div
