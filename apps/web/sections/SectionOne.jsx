@@ -72,67 +72,103 @@ const SectionOne = ({ section_one }) => {
 
                     <div className="image-wrapper one visible-xs inview" ref={ImageWrapperOneMobile}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image1.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlOne)
+                                    ?
+                                        <video src={section_one.videoUrlOne} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image1.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
 
                     <div className="image-wrapper two visible-xs" ref={ImageWrapperTwoMobile}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image2.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlTwo)
+                                    ?
+                                        <video src={section_one.videoUrlTwo} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image2.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
 
                     <div className="image-wrapper three visible-xs" ref={ImageWrapperThreeMobile}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image3.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlThree)
+                                    ?
+                                        <video src={section_one.videoUrlThree} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image3.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
 
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperOne}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image1.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlOne)
+                                    ?
+                                        <video src={section_one.videoUrlOne} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image1.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
 
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperTwo}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image2.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlTwo)
+                                    ?
+                                        <video src={section_one.videoUrlTwo} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image2.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
 
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperThree}>
                         <div className="image">
-                            <Image
-                                alt="Landa"
-                                height={163}
-                                src={buildImages(section_one.image3.asset._ref).url()}
-                                width={262}
-                            />
+                            {
+                                (section_one.videoUrlThree)
+                                    ?
+                                        <video src={section_one.videoUrlThree} loop muted autoPlay />
+                                    :
+                                        <Image
+                                            alt="Landa"
+                                            height={163}
+                                            src={buildImages(section_one.image3.asset._ref).url()}
+                                            width={262}
+                                        />
+                            }
                         </div>
                     </div>
                 </div>

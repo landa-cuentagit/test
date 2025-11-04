@@ -43,7 +43,9 @@ export async function getServerSideProps() {
     const cover = await client.fetch(
         `
             *[_type == "cover" ][0]{
-                ...
+                ...,
+                "videoUrlOne": video1.asset->url,
+                "videoUrlTwo": video2.asset->url
             }
         `
     );
@@ -51,7 +53,10 @@ export async function getServerSideProps() {
     const section_one = await client.fetch(
         `
             *[_type == "section_one" ][0]{
-                ...
+                ...,
+                "videoUrlOne": video1.asset->url,
+                "videoUrlTwo": video2.asset->url,
+                "videoUrlThree": video3.asset->url
             }
         `
     );
@@ -67,7 +72,15 @@ export async function getServerSideProps() {
     const capabilities_section = await client.fetch(
         `
             *[_type == "capabilities" ][0]{
-                ...
+                ...,
+                all_capabilities[]{
+                    capability_name,
+                    text1,
+                    text2,
+                    image,
+                    image_mobile,
+                    "videoUrl": video.asset->url
+                }
             }
         `
     );

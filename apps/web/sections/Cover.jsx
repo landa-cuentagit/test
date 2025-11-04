@@ -55,18 +55,34 @@ const Cover = ({ template, cover_section }) => {
                     :
                         null
             }
-            <div
-                className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
-                style={{
-                    background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
-                }}
-            />
-            <div
-                className={`background-two ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
-                style={{
-                    background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
-                }}
-            />
+            {
+                (cover_section.videoUrlOne)
+                    ?
+                        <div className="video-wrapper-one">
+                            <video src={cover_section.videoUrlOne} autoPlay muted loop />
+                        </div>
+                    :
+                        <div
+                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                            style={{
+                                background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
+                            }}
+                        />
+            }
+            {
+                (cover_section.videoUrlTwo)
+                    ?
+                        <div className="video-wrapper-two">
+                            <video src={cover_section.videoUrlTwo} autoPlay muted loop />
+                        </div>
+                    :
+                        <div
+                            className={`background-two ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                            style={{
+                                background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
+                            }}
+                        />
+            }
             <div className="holder">
                 <div className="content">
                     <div className="text-wrapper">

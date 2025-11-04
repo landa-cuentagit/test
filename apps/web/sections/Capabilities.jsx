@@ -101,12 +101,18 @@ const Capabilities = ({ capabilities_section }) => {
                                 {
                                     capabilities_section.all_capabilities.map((capability, index) => (
                                         <SwiperSlide className="image" key={index}>
-                                            <Image
-                                                alt={capability.capability_name}
-                                                height={550}
-                                                src={buildImages(capability.image.asset._ref).url()}
-                                                width={480}
-                                            />
+                                            {
+                                                (capability.videoUrl)
+                                                    ?
+                                                        <video src={capability.videoUrl} muted autoPlay loop />
+                                                    :
+                                                        <Image
+                                                            alt={capability.capability_name}
+                                                            height={550}
+                                                            src={buildImages(capability.image.asset._ref).url()}
+                                                            width={480}
+                                                        />
+                                            }
                                         </SwiperSlide>
                                     ))
                                 }
@@ -131,21 +137,25 @@ const Capabilities = ({ capabilities_section }) => {
                                             <div className="item-content">
                                                 <div className="item-desc">
                                                     {
-                                                        (capability.image_mobile)
+                                                        (capability.videoUrl)
                                                             ?
-                                                                <div
-                                                                    className="image-mobile simple-effect visible-xs"
-                                                                    style={{
-                                                                        background: `url(${buildImages(capability.image_mobile.asset._ref).url()})`
-                                                                    }}
-                                                                />
+                                                                <video className='simple-effect visible-xs' src={capability.videoUrl} muted autoPlay loop />
                                                             :
-                                                                <div
-                                                                    className="image-mobile simple-effect visible-xs"
-                                                                    style={{
-                                                                        background: `url(${buildImages(capability.image.asset._ref).url()})`
-                                                                    }}
-                                                                />
+                                                                (capability.image_mobile)
+                                                                    ?
+                                                                        <div
+                                                                            className="image-mobile simple-effect visible-xs"
+                                                                            style={{
+                                                                                background: `url(${buildImages(capability.image_mobile.asset._ref).url()})`
+                                                                            }}
+                                                                        />
+                                                                    :
+                                                                        <div
+                                                                            className="image-mobile simple-effect visible-xs"
+                                                                            style={{
+                                                                                background: `url(${buildImages(capability.image.asset._ref).url()})`
+                                                                            }}
+                                                                        />
                                                     }
                                                     <div className="capability-text-one text-effect">{capability.text1}</div>
                                                     <div className="capability-text-two text-effect">

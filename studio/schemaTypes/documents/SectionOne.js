@@ -29,6 +29,21 @@ export default {
             name: 'image3',
             title: 'Image Three (586px × 346px)',
             type: 'image'
+        },
+        {
+            name: 'video1',
+            title: 'Video One',
+            type: 'file'
+        },
+        {
+            name: 'video2',
+            title: 'Video Two',
+            type: 'file'
+        },
+        {
+            name: 'video3',
+            title: 'Video Three',
+            type: 'file'
         }
     ]
 }

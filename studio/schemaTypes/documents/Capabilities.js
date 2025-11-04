@@ -65,7 +65,12 @@ export default {
                         name: 'image_mobile',
                         title: 'Image Mobile (768px × 484px)',
                         type: 'image'
-                    }
+                    },
+                    {
+                        name: 'video',
+                        title: 'Video',
+                        type: 'file'
+                    },
                 ]
             }]
         }

@@ -27,7 +27,9 @@ export async function getServerSideProps() {
     const cover = await client.fetch(
         `
             *[_type == "cover" ][0]{
-                ...
+                ...,
+                "videoUrlOne": video1.asset->url,
+                "videoUrlTwo": video2.asset->url
             }
         `
     );
