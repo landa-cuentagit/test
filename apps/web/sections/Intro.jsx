@@ -1,7 +1,6 @@
-import { useEffect, forwardRef, useState } from "react";
+import { useEffect, forwardRef, useState, useRef } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers';
-import { useRef } from 'react'
 import Lottie from "lottie-react";
 
 import { LandaAnimated } from "../../../packages/ui";
@@ -36,49 +35,6 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
         return () => clearTimeout(timer);
     }, [onFadeInComplete]);
 
-    useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-
-        const handleScroll = () => {
-            const scrollTop = el.scrollTop;
-            const sectionHeight = el.clientHeight;
-            const totalHeight = el.scrollHeight - sectionHeight;
-            const progress = scrollTop / totalHeight;
-            let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
-                allTextWaiting = document.querySelectorAll('.wait-text-effect')
-
-            if (progress < 0.33) setActiveIndex(0);
-            else if (progress < 0.66) setActiveIndex(1);
-            else setActiveIndex(2);
-
-            if (progress >= 1 && !fadeOut) {
-
-                allImagesWaiting.forEach(image => {
-                    image.classList.add('apply-effect')
-                })
-
-                allTextWaiting.forEach(text => {
-                    text.classList.add('apply-effect')
-                })
-
-                setFadeOut(true);
-                setFadeIn(false);
-
-                setTimeout(() => {
-                    // Llamamos onFinish para ocultar el intro
-                    if (onFinish) onFinish();
-
-                    // Restaurar scroll global
-                    document.body.style.overflow = "auto";
-                }, 1000); // coincide con la transición CSS
-            }
-        };
-
-        el.addEventListener("scroll", handleScroll);
-        return () => el.removeEventListener("scroll", handleScroll);
-    }, [fadeOut, onFinish, ref]);
-
     const [isMobile, setIsMobile] = useState(false);
     const [scaleSize, setScaleSize] = useState(1); // porcentaje inicial
 
@@ -104,16 +60,44 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
             const scrollTop = el.scrollTop;
             const sectionHeight = el.clientHeight;
             const totalHeight = el.scrollHeight - sectionHeight;
+            let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
+                allTextWaiting = document.querySelectorAll('.wait-text-effect')
 
             const progress = scrollTop / totalHeight; // 0 a 1
             const size = 100 + progress * 20; // de 100% a 120%
             const scaleValue = size / 100
             setScaleSize(scaleValue);
+
+            if (progress < 0.33) setActiveIndex(0);
+            else if (progress < 0.66) setActiveIndex(1);
+            else setActiveIndex(2);
+
+            if (progress >= 0.98 && !fadeOut) {
+
+                allImagesWaiting.forEach(image => {
+                    image.classList.add('apply-effect')
+                })
+
+                allTextWaiting.forEach(text => {
+                    text.classList.add('apply-effect')
+                })
+
+                setFadeOut(true);
+                setFadeIn(false);
+
+                setTimeout(() => {
+                    if (onFinish) onFinish();
+                    // Llamamos onFinish para ocultar el intro
+
+                    // Restaurar scroll global
+                    document.body.style.overflow = "auto";
+                }, 1000); // coincide con la transición CSS
+            }
         };
 
         el.addEventListener("scroll", handleScroll);
         return () => el.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [fadeOut, onFinish, ref]);
 
     return (
         <div
