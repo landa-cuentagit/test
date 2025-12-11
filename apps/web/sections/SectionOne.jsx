@@ -73,7 +73,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper one visible-xs inview" ref={ImageWrapperOneMobile}>
                         <div className="image">
                             {
-                                (section_one.videoUrlOne)
+                                (!section_one.videoUrlOne)
                                     ?
                                         <video src={section_one.videoUrlOne} loop muted playsInline autoPlay />
                                     :
@@ -90,7 +90,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper two visible-xs" ref={ImageWrapperTwoMobile}>
                         <div className="image">
                             {
-                                (section_one.videoUrlTwo)
+                                (!section_one.videoUrlTwo)
                                     ?
                                         <video src={section_one.videoUrlTwo} loop muted playsInline autoPlay />
                                     :
@@ -107,7 +107,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper three visible-xs" ref={ImageWrapperThreeMobile}>
                         <div className="image">
                             {
-                                (section_one.videoUrlThree)
+                                (!section_one.videoUrlThree)
                                     ?
                                         <video src={section_one.videoUrlThree} loop muted playsInline autoPlay />
                                     :
@@ -124,7 +124,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperOne}>
                         <div className="image">
                             {
-                                (section_one.videoUrlOne)
+                                (!section_one.videoUrlOne)
                                     ?
                                         <video src={section_one.videoUrlOne} loop muted autoPlay />
                                     :
@@ -141,7 +141,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperTwo}>
                         <div className="image">
                             {
-                                (section_one.videoUrlTwo)
+                                (!section_one.videoUrlTwo)
                                     ?
                                         <video src={section_one.videoUrlTwo} loop muted autoPlay />
                                     :
@@ -158,7 +158,7 @@ const SectionOne = ({ section_one }) => {
                     <div className="image-wrapper hidden-xs" ref={ImageWrapperThree}>
                         <div className="image">
                             {
-                                (section_one.videoUrlThree)
+                                (!section_one.videoUrlThree)
                                     ?
                                         <video src={section_one.videoUrlThree} loop muted autoPlay />
                                     :

@@ -126,11 +126,12 @@ em {
         cursor: pointer;
         height: 16px;
         right: 45px;
+        transform: scale(1);
         transition: all 550ms ease-in-out;
         width: 30px;
 
         &:hover {
-            transform: rotate(-130deg);
+            transform: scale(1.2);
         }
     }
 

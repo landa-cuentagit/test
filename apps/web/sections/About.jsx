@@ -130,19 +130,19 @@ const About = ({ about_section }) => {
                         </div>
                     </div>
                     <div className="text-three text-effect">
-                        We are redefining what it means to <br/>
+                        Our communities are <br/>
                         <TypingRotator
                             sentences={[    
-                                'rediscover',
-                                'explore',
-                                'reimagine',
-                                'experience',
-                                'reawaken',
-                                'feel',
-                                'connect with',
-                                'honor',
-                                'understand',
-                                'regenerate'
+                                'rediscovering',
+                                'exploring',
+                                'reimagining',
+                                'experiencing',
+                                'reawakening',
+                                'feeling',
+                                'connecting with',
+                                'honoring',
+                                'understanding',
+                                'regenerating'
                             ]}
                             speed={100}
                             pauseSteps={15}

@@ -102,7 +102,7 @@ const Capabilities = ({ capabilities_section }) => {
                                     capabilities_section.all_capabilities.map((capability, index) => (
                                         <SwiperSlide className="image" key={index}>
                                             {
-                                                (capability.videoUrl)
+                                                (!capability.videoUrl)
                                                     ?
                                                         <video src={capability.videoUrl} muted autoPlay loop />
                                                     :
@@ -137,7 +137,7 @@ const Capabilities = ({ capabilities_section }) => {
                                             <div className="item-content">
                                                 <div className="item-desc">
                                                     {
-                                                        (capability.videoUrl)
+                                                        (!capability.videoUrl)
                                                             ?
                                                                 <video className='simple-effect visible-xs' src={capability.videoUrl} playsInline muted autoPlay loop />
                                                             :
