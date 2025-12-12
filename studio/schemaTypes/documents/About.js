@@ -70,6 +70,23 @@ export default {
                     }
                 ]
             }]
+        },
+        {
+            name: 'all_words',
+            title: 'Palabras',
+            type: 'array',
+            of: [{
+                name: 'singleWord',
+                title: 'Word',
+                type: 'document',
+                fields: [
+                    {
+                        name: 'word',
+                        title: 'Palabra',
+                        type: 'string'
+                    }
+                ]
+            }]
         }
     ]
 }

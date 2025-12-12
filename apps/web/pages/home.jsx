@@ -10,7 +10,7 @@ import Destinations from '../sections/Destinations';
 import Capabilities from '../sections/Capabilities';
 import About from '../sections/About';
 
-import Footer from '../partials/Footer';
+import Footer from '../partials/FooterSplash';
 
 import useInViewEffect from '../partials/Inview';
 
@@ -172,7 +172,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
     useEffect(() => {
         let outerWrapper = document.querySelector('.outer-wrapper'),
             navigation = document.querySelector('.navigation'),
-            footer = document.querySelector('.footer');
+            footer = document.querySelector('footer');
 
         setTimeout(() => {
             outerWrapper.style.opacity = '1';

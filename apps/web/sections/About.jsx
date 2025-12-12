@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers'
 import TypingRotator from "../partials/TypingRotator";
@@ -15,6 +15,7 @@ import 'swiper/css/effect-fade';
 import { EffectFade, EffectCreative } from 'swiper/modules';
 
 const About = ({ about_section }) => {
+    const [sentences, setSentences] = useState([]);
     const swiperRef1 = useRef(null);
     const swiperRef2 = useRef(null);
 
@@ -27,6 +28,21 @@ const About = ({ about_section }) => {
         if (swiperRef1.current) swiperRef1.current.slideTo(index);
         if (swiperRef2.current) swiperRef2.current.slideTo(index);
     };
+
+    useEffect(() => {
+        if (!about_section.all_words) return;
+
+        // Normaliza: asegúrate de tener strings, sin vacíos, sin duplicados si quieres
+        const normalized = Array.from(
+        new Set(
+            (Array.isArray(about_section.all_words) ? about_section.all_words : [])
+            .map(w => String(w.word).trim())
+            .filter(Boolean)
+        )
+        );
+
+        setSentences(normalized);
+    }, [about_section.all_words]);
 
     return (
         <section className="block about">
@@ -57,13 +73,13 @@ const About = ({ about_section }) => {
                                     className={`tab ${activeTab === 0 ? "active" : ""}`}
                                     onClick={() => handleTabClick(0)}
                                 >
-                                    LEGACY
+                                    {about_section.all_elements[0].element_name}
                                 </div>
                                 <div
                                     className={`tab ${activeTab === 1 ? "active" : ""}`}
                                     onClick={() => handleTabClick(1)}
                                 >
-                                    PHILOSOPHY
+                                    {about_section.all_elements[1].element_name}
                                 </div>
                             </div>
                         </div>
@@ -132,18 +148,7 @@ const About = ({ about_section }) => {
                     <div className="text-three text-effect">
                         Our communities are <br/>
                         <TypingRotator
-                            sentences={[    
-                                'rediscovering',
-                                'exploring',
-                                'reimagining',
-                                'experiencing',
-                                'reawakening',
-                                'feeling',
-                                'connecting with',
-                                'honoring',
-                                'understanding',
-                                'regenerating'
-                            ]}
+                            sentences={sentences}
                             speed={100}
                             pauseSteps={15}
                             className="typing"

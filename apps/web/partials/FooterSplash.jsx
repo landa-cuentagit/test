@@ -134,6 +134,13 @@ const Footer = ({ template, contact_section }) => {
                     <div className="flex-content">
                         <div className="left">
                             <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                            {
+                                (template === 'home')
+                                    ?
+                                        <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
+                                    :
+                                        null
+                            }
                         </div>
                         <div className="right">
                             <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
@@ -156,7 +163,16 @@ const Footer = ({ template, contact_section }) => {
                         </div>
                     </div>
                     <div className="right-links">
-                        <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                        <div>
+                            <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                            {
+                                (template === 'home')
+                                    ?
+                                        <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
+                                    :
+                                        null
+                            }
+                        </div>
                         <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
                     </div>
                 </div>

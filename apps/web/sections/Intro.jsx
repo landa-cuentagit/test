@@ -122,7 +122,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                     animationData={LandaAnimated}
                     loop={false} // Solo una vez
                     lottieRef={lottieRef}
-                    autoplay={true}
+                    autoplay={false}
                 />
             </div>
             <div className="scroll-indication">Scroll</div>
