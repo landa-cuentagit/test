@@ -78,9 +78,12 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                     image.classList.add('apply-effect')
                 })
 
-                allTextWaiting.forEach(text => {
-                    text.classList.add('apply-effect')
-                })
+                setTimeout(() => {
+
+                    allTextWaiting.forEach(text => {
+                        text.classList.add('apply-effect')
+                    })
+                }, 550);
 
                 setFadeOut(true);
                 setFadeIn(false);

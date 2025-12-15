@@ -42,7 +42,7 @@ const Destinations = ({ destinations_section }) => {
         if (activeBullet) {
             setTimeout(() => {
                 activeBullet.style.width = '100%';
-                activeBullet.style.transition = 'width 3s linear';
+                activeBullet.style.transition = 'width 5000ms linear';
             }, 10);
         }
     }, [swiperActiveIndex]);

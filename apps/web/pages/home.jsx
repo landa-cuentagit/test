@@ -191,6 +191,38 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         }
     }, [])
 
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const hasSeen = localStorage.getItem("hasSeenIntro");
+
+        if (!hasSeen) {
+          setShow(true);
+          localStorage.setItem("hasSeenIntro", "true");
+        } else {
+            setShowIntro(false)
+            let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
+                allTextWaiting = document.querySelectorAll('.wait-text-effect')
+
+                let outerWrapper = document.querySelector('.outer-wrapper'),
+                    navigation = document.querySelector('.navigation'),
+                    footer = document.querySelector('footer');
+
+            allImagesWaiting.forEach(image => {
+                    image.classList.add('apply-effect')
+                })
+                    setTimeout(() => {
+
+                allTextWaiting.forEach(text => {
+                    text.classList.add('apply-effect')
+                })
+        }, 1200);
+            outerWrapper.style.opacity = '1';
+            navigation.style.opacity = '1';
+            footer.style.opacity = '1';
+        }
+    }, []);
+
     return (
         <>
             {showIntro && (
