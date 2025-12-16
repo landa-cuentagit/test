@@ -143,6 +143,10 @@
         width: 100%;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .destiny-background {
         background-position: center !important;
         background-repeat:  no-repeat !important;
@@ -173,6 +177,7 @@
         line-height: 22px;
         position: absolute;
         top: 76px;
+        text-decoration: none;
         z-index: 2;
     }
 

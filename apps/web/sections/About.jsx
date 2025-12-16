@@ -86,22 +86,13 @@ const About = ({ about_section }) => {
                         <div className="item">
                             <div className="image-wrapper">
                                 <Swiper
-                                    speed={750}
+                                    speed={2000}
                                     spaceBetween={30}
-                                    effect={'creative'}
-                                    modules={[EffectCreative]}
+                                    effect={'fade'}
+                                    modules={[EffectFade]}
                                     className="mySwiper"
                                     allowTouchMove={false} // ❌ desactiva el swipe
                                     onSwiper={(swiper) => (swiperRef1.current = swiper)}
-                                    creativeEffect={{
-                                        prev: {
-                                            shadow: true,
-                                            translate: ['-20%', 0, -1],
-                                        },
-                                        next: {
-                                            translate: ['100%', 0, 0],
-                                        },
-                                    }}
                                 >
                                     {
                                         about_section.all_elements.map((element, index) => (

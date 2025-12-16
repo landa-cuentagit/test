@@ -72,7 +72,7 @@ const Destinations = ({ destinations_section }) => {
                     <div className="carrousel-wrapper simple-effect">
                         {
                             destinations_section.all_destinations.map((destiny, index) => (
-                                <div key={index} className="coords-wrapper"><Counter targetNumber={destiny.first_coord} trigger={swiperActiveIndex} />º N, <Counter targetNumber={destiny.second_coord} trigger={swiperActiveIndex} />º E</div>
+                                <a href={destiny.link_maps} target='_blank' rel="noopener noreferrer" key={index} className="coords-wrapper"><Counter targetNumber={destiny.first_coord} trigger={swiperActiveIndex} />º N, <Counter targetNumber={destiny.second_coord} trigger={swiperActiveIndex} />º E</a>
                             ))
                         }
                         <Swiper
@@ -80,6 +80,7 @@ const Destinations = ({ destinations_section }) => {
                             spaceBetween={30}
                             effect={'fade'}
                             className="mySwiper"
+                            allowTouchMove={false}
                             pagination={{
                                 clickable: true,
                                 renderBullet: (index, className) => `
@@ -120,26 +121,55 @@ const Destinations = ({ destinations_section }) => {
                             {
                                 destinations_section.all_destinations.map((destiny, index) => (
                                     <SwiperSlide className="destiny" key={index}>
-                                        <div
-                                            className="destiny-background hidden-xs"
-                                            style={{
-                                                background: `url(${buildImages(destiny.image.asset._ref).url()})`
-                                            }}
-                                        />
-                                        <div
-                                            className="destiny-background visible-xs"
-                                            style={{
-                                                background: `url(${buildImages(destiny.image_mobile.asset._ref).url()})`
-                                            }}
-                                        />
-                                        <div className="destiny-name">{destiny.destiny_name}</div>
-                                        <div className="destiny-info">
-                                            <div className="destiny-location-one">{destiny.location1}</div>
-                                            <div className="destiny-location-two">{destiny.location2}</div>
-                                            <div className="destiny-text">
-                                                <PortableText value={destiny.text} />
-                                            </div>
-                                        </div>
+                                        {
+                                            (destiny.link_secondary)
+                                                ?
+                                                    <a href={destiny.link_secondary} target='_blank' rel="noopener noreferrer">
+                                                        <div
+                                                            className="destiny-background hidden-xs"
+                                                            style={{
+                                                                background: `url(${buildImages(destiny.image.asset._ref).url()})`
+                                                            }}
+                                                        />
+                                                        <div
+                                                            className="destiny-background visible-xs"
+                                                            style={{
+                                                                background: `url(${buildImages(destiny.image_mobile.asset._ref).url()})`
+                                                            }}
+                                                        />
+                                                        <div className="destiny-name">{destiny.destiny_name}</div>
+                                                        <div className="destiny-info">
+                                                            <div className="destiny-location-one">{destiny.location1}</div>
+                                                            <div className="destiny-location-two">{destiny.location2}</div>
+                                                            <div className="destiny-text">
+                                                                <PortableText value={destiny.text} />
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                :
+                                                <>
+                                                    <div
+                                                        className="destiny-background hidden-xs"
+                                                        style={{
+                                                            background: `url(${buildImages(destiny.image.asset._ref).url()})`
+                                                        }}
+                                                    />
+                                                    <div
+                                                        className="destiny-background visible-xs"
+                                                        style={{
+                                                            background: `url(${buildImages(destiny.image_mobile.asset._ref).url()})`
+                                                        }}
+                                                    />
+                                                    <div className="destiny-name">{destiny.destiny_name}</div>
+                                                    <div className="destiny-info">
+                                                        <div className="destiny-location-one">{destiny.location1}</div>
+                                                        <div className="destiny-location-two">{destiny.location2}</div>
+                                                        <div className="destiny-text">
+                                                            <PortableText value={destiny.text} />
+                                                        </div>
+                                                    </div>
+                                                </>
+                                        }
                                     </SwiperSlide>
                                 ))
                             }

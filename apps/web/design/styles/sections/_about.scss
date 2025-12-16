@@ -153,6 +153,22 @@
         order: 2;
     }
 
+    .swiper-slide {
+        overflow: hidden;
+
+        .image {
+            transform: scale(1.04);
+            transition: all 2000ms ease-in-out;
+        }
+
+        &.swiper-slide-active {
+
+            .image {
+                transform: scale(1);
+            }
+        }
+    }
+
     .swiper-slide.text-slide {
         opacity: 0 !important;
 

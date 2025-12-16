@@ -72,6 +72,16 @@ export default {
                         of: [{type: 'block'}]
                     },
                     {
+                        name: 'link_maps',
+                        title: 'Link maps',
+                        type: 'string'
+                    },
+                    {
+                        name: 'link_secondary',
+                        title: 'Link secundario',
+                        type: 'string'
+                    },
+                    {
                         name: 'image',
                         title: 'Image (2844px × 1200px)',
                         type: 'image'
