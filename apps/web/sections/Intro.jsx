@@ -102,6 +102,34 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
         return () => el.removeEventListener("scroll", handleScroll);
     }, [fadeOut, onFinish, ref]);
 
+    const closeIntro = () => {
+
+        let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
+            allTextWaiting = document.querySelectorAll('.wait-text-effect')
+
+        allImagesWaiting.forEach(image => {
+            image.classList.add('apply-effect')
+        })
+
+        setTimeout(() => {
+
+            allTextWaiting.forEach(text => {
+                text.classList.add('apply-effect')
+            })
+        }, 550);
+
+        setFadeOut(true);
+        setFadeIn(false);
+
+        setTimeout(() => {
+            if (onFinish) onFinish();
+            // Llamamos onFinish para ocultar el intro
+
+            // Restaurar scroll global
+            document.body.style.overflow = "auto";
+        }, 1000); // coincide con la transición CSS
+    }
+
     return (
         <div
             ref={ref}
@@ -120,7 +148,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                     transform: `scale(${scaleSize})`, // tamaño dinámico
                 }}
             />
-            <div className="logo">
+            <div className="logo" onClick={closeIntro}>
                 <Lottie
                     animationData={LandaAnimated}
                     loop={false} // Solo una vez
