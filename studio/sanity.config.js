@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'Landa',
 
-  projectId: 'otsftg3j',
+  projectId: 'w4yam611',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
