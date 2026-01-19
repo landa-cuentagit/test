@@ -26,7 +26,7 @@ const Destinations = ({ destinations_section }) => {
         bullets.forEach((bullet, i) => {
             const progressBar = bullet.querySelector('.block.destinations .progress-bar');
             if (i < swiperActiveIndex) {
-                progressBar.style.width = '100%';
+                progressBar.style.width = '0%';
                 progressBar.style.transition = 'none';
             } else if (i === swiperActiveIndex) {
                 progressBar.style.width = '0%';
