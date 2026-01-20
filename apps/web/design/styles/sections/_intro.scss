@@ -15,7 +15,7 @@
     z-index: 9999;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 750ms ease;
+    transition: opacity 1500ms ease;
 
     .background {
         background-position: center !important;
@@ -77,7 +77,7 @@
 }
 
 .scroll-area {
-    height: 350vh; // Simula el scroll interno para cambiar textos
+    height: 500vh; // Simula el scroll interno para cambiar textos
 }
 
 .intro-text-container {

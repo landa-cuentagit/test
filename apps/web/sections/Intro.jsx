@@ -13,7 +13,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
         const timer = setTimeout(() => {
         // inicia la animación después de 1s
         lottieRef.current?.play();
-        }, 1500);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -127,7 +127,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
 
             // Restaurar scroll global
             document.body.style.overflow = "auto";
-        }, 1000); // coincide con la transición CSS
+        }, 1750); // coincide con la transición CSS
     }
 
     return (

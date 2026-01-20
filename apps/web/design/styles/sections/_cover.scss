@@ -27,7 +27,7 @@
         z-index: 1;
     }
 
-    .background-one, .video-wrapper-one {
+    .video-wrapper-one, .swiper-left {
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-size: cover !important;
@@ -36,9 +36,21 @@
         position: absolute;
         top: 0;
         width: 100%;
+        z-index: unset;
     }
 
-    .background-two, .video-wrapper-two {
+    .background-one, .background-two {
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .video-wrapper-two, .swiper-right {
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-size: cover !important;
@@ -47,11 +59,13 @@
         position: absolute;
         right: 0;
         width: 100%;
+        z-index: unset;
     }
 
     .holder {
         max-width: 291px;
         position: relative;
+        z-index: 1;
     }
 
     video {
@@ -69,7 +83,7 @@
         font-size: 24px;
         line-height: 34px;
 
-        .background-one, .background-two, .video-wrapper-one, .video-wrapper-two {
+        .video-wrapper-one, .video-wrapper-two, .swiper-left, .swiper-right {
             position: fixed;
         }
 
@@ -79,12 +93,12 @@
             top: 30px;
         }
 
-        .background-one, .video-wrapper-one {
+        .video-wrapper-one, .swiper-left {
             height: 100%;
             width: 50%;
         }
 
-        .background-two, .video-wrapper-two {
+        .video-wrapper-two, .swiper-right {
             height: 100%;
             width: 50%;
         }
@@ -95,7 +109,7 @@
 
         &.cover-splash {
 
-            .background-one, .background-two, .video-wrapper-one, .video-wrapper-two {
+            .video-wrapper-one, .video-wrapper-two, .swiper-left, .swiper-right {
                 position: absolute;
             }
         }

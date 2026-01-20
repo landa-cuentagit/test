@@ -88,6 +88,10 @@
             }
         }
     }
+
+    &.scrollTop {
+        backdrop-filter: blur(7.5px);
+    }
 }
 
 .list-wrapper {

@@ -86,6 +86,11 @@ section {
     z-index: 888;
 }
 
+/* cuando llegas al final del template, deja de ser fixed */
+.show-intro.is-stuck {
+  position: absolute;
+}
+
 strong {
     font-weight: normal;
 }

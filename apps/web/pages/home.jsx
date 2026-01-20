@@ -223,6 +223,30 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         }
     }, []);
 
+    const sentinelRef = useRef(null);
+    const [isStuck, setIsStuck] = useState(false);
+
+    useEffect(() => {
+        const el = sentinelRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            // Si el sentinel está visible, significa que llegaste al final del Template
+            setIsStuck(entry.isIntersecting);
+        },
+        {
+            root: null,
+            threshold: 0,
+            // Importante: detecta cuando el bottom del viewport toca el sentinel
+            rootMargin: "0px 0px 1px 0px",
+        }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             {showIntro && (
@@ -260,7 +284,11 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                     <About about_section={about_section} />
                 </div>
                 <div id='contact' />
-                <div className="show-intro" onClick={handleShowIntro} />
+                <div
+                    className={`show-intro ${isStuck ? "is-stuck" : ""}`}
+                    onClick={handleShowIntro}
+                />
+                <div ref={sentinelRef} className="template-end-sentinel" />
             </Template>
             <Footer template='home' contact_section={contact_section} />
         </>

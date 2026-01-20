@@ -5,6 +5,16 @@ import Lottie from "lottie-react";
 
 import { LandaAnimated } from "../../../packages/ui";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+
+// import required modules
+import { EffectFade, Autoplay } from 'swiper/modules';
+
 const Cover = ({ template, cover_section }) => {
 
     const lottieRef = useRef();
@@ -62,12 +72,31 @@ const Cover = ({ template, cover_section }) => {
                             <video src={cover_section.videoUrlOne} autoPlay playsInline muted loop />
                         </div>
                     :
-                        <div
-                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
-                            style={{
-                                background: `url(${buildImages(cover_section.image1.asset._ref).url()})`
+                        <Swiper
+                            speed={750}
+                            allowTouchMove={false} // ❌ desactiva el swipe
+                            spaceBetween={30}
+                            effect={'fade'}
+                            modules={[EffectFade, Autoplay]}
+                            className="mySwiper swiper-left"
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
                             }}
-                        />
+                        >
+                            {
+                                cover_section.all_images_left.map((image, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div
+                                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                                            style={{
+                                                background: `url(${buildImages(image.asset._ref).url()})`
+                                            }}
+                                        />
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </Swiper>
             }
             {
                 (cover_section.videoUrlTwo)
@@ -76,12 +105,31 @@ const Cover = ({ template, cover_section }) => {
                             <video src={cover_section.videoUrlTwo} autoPlay playsInline muted loop />
                         </div>
                     :
-                        <div
-                            className={`background-two ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
-                            style={{
-                                background: `url(${buildImages(cover_section.image2.asset._ref).url()})`
+                        <Swiper
+                            speed={750}
+                            allowTouchMove={false} // ❌ desactiva el swipe
+                            spaceBetween={30}
+                            effect={'fade'}
+                            modules={[EffectFade, Autoplay]}
+                            className="mySwiper swiper-right"
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
                             }}
-                        />
+                        >
+                            {
+                                cover_section.all_images_right.map((image, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div
+                                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                                            style={{
+                                                background: `url(${buildImages(image.asset._ref).url()})`
+                                            }}
+                                        />
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </Swiper>
             }
             <div className="holder">
                 <div className="content">
