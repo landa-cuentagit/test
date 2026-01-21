@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Counter = ({ targetNumber, trigger, duration = 4500, decimals = 4 }) => {
+const Counter = ({ targetNumber, trigger, duration = 4500, decimals = 2 }) => {
 
     const [count, setCount] = useState(0);
     const elementRef = useRef(null);
