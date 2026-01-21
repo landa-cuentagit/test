@@ -204,6 +204,8 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                     navigation = document.querySelector('.navigation'),
                     footer = document.querySelector('footer'),
                     showIntroElement = document.querySelector('.show-intro');
+            let html = document.querySelector('html')
+            html.classList.remove('no-scroll')
 
             allImagesWaiting.forEach(image => {
                     image.classList.add('apply-effect')
