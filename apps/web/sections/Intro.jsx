@@ -53,6 +53,9 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
     }, []);
 
     useEffect(() => {
+        let html = document.querySelector('html')
+        html.classList.add('no-scroll')
+        
         const el = ref.current;
         if (!el) return;
 
@@ -61,7 +64,10 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
             const sectionHeight = el.clientHeight;
             const totalHeight = el.scrollHeight - sectionHeight;
             let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
-                allTextWaiting = document.querySelectorAll('.wait-text-effect')
+                allTextWaiting = document.querySelectorAll('.wait-text-effect'),
+                navigation = document.querySelector('.navigation'),
+                footer = document.querySelector('footer'),
+                showIntroElement = document.querySelector('.show-intro');
 
             const progress = scrollTop / totalHeight; // 0 a 1
             const size = 100 + progress * 20; // de 100% a 120%
@@ -83,7 +89,13 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                     allTextWaiting.forEach(text => {
                         text.classList.add('apply-effect')
                     })
-                }, 550);
+                    navigation.style.opacity = 1
+                    footer.style.opacity = 1
+                    showIntroElement.style.opacity = 1
+                    setTimeout(() => {
+                        html.classList.remove('no-scroll')
+                    }, 550);
+                }, 1250);
 
                 setFadeOut(true);
                 setFadeIn(false);
@@ -105,7 +117,14 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
     const closeIntro = () => {
 
         let allImagesWaiting= document.querySelectorAll('.wait-image-effect'),
-            allTextWaiting = document.querySelectorAll('.wait-text-effect')
+            allTextWaiting = document.querySelectorAll('.wait-text-effect'),
+            navigation = document.querySelector('.navigation'),
+            footer = document.querySelector('footer'),
+            showIntroElement = document.querySelector('.show-intro');
+
+        navigation.style.opacity = 1
+        footer.style.opacity = 1
+        showIntroElement.style.opacity = 1
 
         allImagesWaiting.forEach(image => {
             image.classList.add('apply-effect')

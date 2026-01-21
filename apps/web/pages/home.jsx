@@ -170,14 +170,10 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
     }, []);
 
     useEffect(() => {
-        let outerWrapper = document.querySelector('.outer-wrapper'),
-            navigation = document.querySelector('.navigation'),
-            footer = document.querySelector('footer');
+        let outerWrapper = document.querySelector('.outer-wrapper')
 
         setTimeout(() => {
             outerWrapper.style.opacity = '1';
-            navigation.style.opacity = '1';
-            footer.style.opacity = '1';
         }, 2500);
     }, [])
 
@@ -206,20 +202,21 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
 
                 let outerWrapper = document.querySelector('.outer-wrapper'),
                     navigation = document.querySelector('.navigation'),
-                    footer = document.querySelector('footer');
+                    footer = document.querySelector('footer'),
+                    showIntroElement = document.querySelector('.show-intro');
 
             allImagesWaiting.forEach(image => {
                     image.classList.add('apply-effect')
                 })
-                    setTimeout(() => {
-
-                allTextWaiting.forEach(text => {
-                    text.classList.add('apply-effect')
-                })
-        }, 1200);
+                setTimeout(() => {
+                    allTextWaiting.forEach(text => {
+                        text.classList.add('apply-effect')
+                        navigation.style.opacity = '1';
+                        footer.style.opacity = '1';
+                        showIntroElement.style.opacity = '1';
+                    })
+                }, 2000);
             outerWrapper.style.opacity = '1';
-            navigation.style.opacity = '1';
-            footer.style.opacity = '1';
         }
     }, []);
 
