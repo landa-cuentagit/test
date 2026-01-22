@@ -1,22 +1,11 @@
 import { useEffect, forwardRef, useState, useRef } from "react";
 import { PortableText } from "next-sanity";
 import { buildImages } from '../util/Helpers';
-import Lottie from "lottie-react";
+import Image from 'next/image';
 
-import { LandaAnimated } from "../../../packages/ui";
+import { LandaLogo } from "../../../packages/ui";
 
-const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) => {
-
-    const lottieRef = useRef();
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-        // inicia la animación después de 1s
-        lottieRef.current?.play();
-        }, 2000);
-
-        return () => clearTimeout(timer);
-    }, []);
+const Intro = forwardRef(({ setPlayLottie, intro_section, onFinish, onFadeInComplete }, ref) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [fadeOut, setFadeOut] = useState(false);
@@ -92,6 +81,7 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                     navigation.style.opacity = 1
                     footer.style.opacity = 1
                     showIntroElement.style.opacity = 1
+                    setPlayLottie(true)
                     setTimeout(() => {
                         html.classList.remove('no-scroll')
                     }, 550);
@@ -168,11 +158,11 @@ const Intro = forwardRef(({ intro_section, onFinish, onFadeInComplete }, ref) =>
                 }}
             />
             <div className="logo" onClick={closeIntro}>
-                <Lottie
-                    animationData={LandaAnimated}
-                    loop={false} // Solo una vez
-                    lottieRef={lottieRef}
-                    autoplay={false}
+                <Image
+                    alt='Landa'
+                    height={LandaLogo.height}
+                    src={LandaLogo.src}
+                    width={LandaLogo.width}
                 />
             </div>
             <div className="scroll-indication">Scroll</div>

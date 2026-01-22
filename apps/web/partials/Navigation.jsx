@@ -1,9 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Image from 'next/image';
+import Lottie from "lottie-react";
 
-import { LandaLogo } from '../../../packages/ui';
+import { LandaAnimated } from '../../../packages/ui';
 
-const Navigation = ({ contact_info, template, activeSection }) => {
+const Navigation = ({ contact_info, template, activeSection, playLottie }) => {
+
+    const lottieRef = useRef();
+
+    useEffect(() => {
+        console.log(playLottie)
+        if(playLottie) {
+            const timer = setTimeout(() => {
+                // inicia la animación después de 1s
+                lottieRef.current?.play();
+            }, 100);
+            
+            return () => clearTimeout(timer);
+        }
+    }, [playLottie]);
 
     const ListWrapper = useRef(null)
 
@@ -56,11 +70,11 @@ const Navigation = ({ contact_info, template, activeSection }) => {
                 <div className="holder">
                     <div className="content">
                         <a href={(template === 'home') ? '#' : '/home'} className="logo">
-                            <Image
-                                alt='Landa'
-                                height={LandaLogo.height}
-                                src={LandaLogo.src}
-                                width={LandaLogo.width}
+                            <Lottie
+                                animationData={LandaAnimated}
+                                loop={false} // Solo una vez
+                                lottieRef={lottieRef}
+                                autoplay={false}
                             />
                         </a>
                         <div className="toggle-wrapper visible-xs" onClick={expandMenu}>

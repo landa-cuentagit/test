@@ -187,6 +187,8 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         }
     }, [])
 
+    const [playLottie, setPlayLottie] = useState(false);
+
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -216,6 +218,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                         navigation.style.opacity = '1';
                         footer.style.opacity = '1';
                         showIntroElement.style.opacity = '1';
+                        setPlayLottie(true)
                     })
                 }, 2000);
             outerWrapper.style.opacity = '1';
@@ -259,9 +262,10 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                     }}
                     intro_section={intro}
                     onFinish={() => setShowIntro(false)}
+                    setPlayLottie={setPlayLottie}
                 />
             )}
-            <Navigation showIntro={showIntro} contact_info={contact_section} template='home' activeSection={activeSection} />
+            <Navigation playLottie={playLottie} showIntro={showIntro} contact_info={contact_section} template='home' activeSection={activeSection} />
             <Template
                 title={page_settings.title}
                 description={page_settings.metadescription}
