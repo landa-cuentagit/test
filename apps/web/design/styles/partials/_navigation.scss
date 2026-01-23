@@ -8,7 +8,7 @@
     top: 0;
     transition: all 550ms ease-in-out;
     z-index: 99;
-  //mix-blend-mode: exclusion;
+    mix-blend-mode: exclusion;
 
     .logo {
         display: block;
@@ -91,7 +91,7 @@
     }
 
     &.scrollTop {
-        backdrop-filter: blur(7.5px);
+        //backdrop-filter: blur(7.5px);
     }
 }
 
