@@ -1,5 +1,5 @@
 .navigation {
-    background: transparent;
+    background: transparent !important;
     mix-blend-mode: exclusion;
     left: 0;
     opacity: 0;
@@ -8,6 +8,7 @@
     width: 100%;
     top: 0;
     transition: all 550ms ease-in-out;
+    --swiper-theme-color: transparent;
     z-index: 99;
 
     .logo {
