@@ -67,6 +67,7 @@ const Navigation = ({ contact_info, template, activeSection, playLottie }) => {
     return (
         <>
             <nav className={`navigation ${template} ${(template === 'privacy') ? 'with-background' : ''} ${(isActive) ? 'scrollTop' : '' }`}>
+                <div className="nav-blend" />
                 <div className="holder">
                     <div className="content">
                         <a href={(template === 'home') ? '#' : '/home'} className="logo">
