@@ -66,6 +66,7 @@ const Navigation = ({ contact_info, template, activeSection, playLottie }) => {
 
     return (
         <>
+            <div className={`blur-bg ${(isActive) ? 'scrollTop' : ''}`} />
             <div className="nav-blend" />
             <nav className={`navigation ${template} ${(template === 'privacy') ? 'with-background' : ''} ${(isActive) ? 'scrollTop' : '' }`}>
                 <div className="holder">

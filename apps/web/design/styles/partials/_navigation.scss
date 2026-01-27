@@ -1,6 +1,26 @@
+
+.blur-bg {
+    background: rgba(242,242,248,.2);
+    backdrop-filter: blur(7.5px);
+    height: 73px;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity 550ms ease-in-out;
+    width: 100%;
+    z-index: 99;
+
+    &.scrollTop {
+        opacity: 1;
+    }
+}
+
 .navigation {
     background: transparent;
     left: 0;
+    mix-blend-mode: difference;
     opacity: 0;
     padding: 26px 22px;
     position: fixed;
@@ -8,16 +28,15 @@
     top: 0;
     transition: all 550ms ease-in-out;
     z-index: 99;
-    mix-blend-mode: exclusion;
 
     .logo {
+        color: transparent;
         display: block;
+        left: 0;
         max-width: 131px;
-        mix-blend-mode: exclusion;
-        position: relative;
         transition: all 550ms ease-in-out;
         width: 100%;
-        z-index: 3;
+        z-index: 999;
     }
 
     .toggle-wrapper {
@@ -199,6 +218,8 @@
             bottom: unset;
             display: flex;
             justify-content: space-between;
+            right: 0;
+            top: 0;
             width: 100%;
         }
 
