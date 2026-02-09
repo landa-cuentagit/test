@@ -102,7 +102,7 @@ const Cover = ({ template, cover_section }) => {
                 (cover_section.videoUrlTwo)
                     ?
                         <div className="video-wrapper-two">
-                            <video src={cover_section.videoUrlTwo} autoPlay playsInline muted loop preload="metadata" poster="/poster01.webp" />
+                            <video src={cover_section.videoUrlTwo} autoPlay playsInline muted loop preload="metadata" poster="/poster02.webp" />
                         </div>
                     :
                         <Swiper
