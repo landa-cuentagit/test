@@ -50,6 +50,18 @@ const Template = ({ children, title, description, keywords, template }) => {
                 <meta name="apple-mobile-web-app-status-bar-style" content="#F1EDE5" />
             </Head>
             <div className={`outer-wrapper ${template}`}>
+                <h1 className="hidden">Transformando destinos regenerativos y experiencias de hospitalidad</h1>
+                <h2 className='hidden'>Quiénes somos</h2>
+                <h2 className='hidden'>Nuestros destinos</h2>
+                <h3 className='hidden'>Muchin - Riviera Maya, México</h3>
+                <h3 className='hidden'>La Capilla - East Cape, Baja California Sur</h3>
+                <h3 className='hidden'>Rancho San Miguel - Riviera Maya, México</h3>
+                <h2 className='hidden'>Nuestra filosofía</h2>
+                <h2 className='hidden'>Lo que hacemos</h2>
+                <h3 className='hidden'>Identificación de territorios y proyectos visionarios</h3>
+                <h3 className='hidden'>Desarrollo ecológico y sostenible</h3>
+                <h3 className='hidden'>Alianzas y ejecución estratégica</h3>
+                <h2 className='hidden'>Contacto</h2>
                 {children}
             </div>
         </>
