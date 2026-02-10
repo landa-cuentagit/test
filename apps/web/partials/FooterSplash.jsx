@@ -133,7 +133,7 @@ const Footer = ({ template, contact_section }) => {
                     </div>
                     <div className="flex-content">
                         <div className="left">
-                            <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                            <div className="copyright text-effect">All rights reserved Landa® 2026</div>
                             {
                                 (template === 'home')
                                     ?
@@ -164,7 +164,7 @@ const Footer = ({ template, contact_section }) => {
                     </div>
                     <div className="right-links">
                         <div>
-                            <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                            <div className="copyright text-effect">All rights reserved Landa® 2026</div>
                             {
                                 (template === 'home')
                                     ?

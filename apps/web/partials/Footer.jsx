@@ -284,7 +284,7 @@ const Footer = ({ template, contact_section }) => {
                     </div>
                     <div className="flex-content">
                         <div className="left">
-                            <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                            <div className="copyright text-effect">All rights reserved Landa® 2026</div>
                         </div>
                         <div className="right">
                             <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
@@ -316,7 +316,7 @@ const Footer = ({ template, contact_section }) => {
                         </div>
                     </div>
                     <div className="right-links">
-                        <div className="copyright text-effect">All rights reserved Landa® 2025</div>
+                        <div className="copyright text-effect">All rights reserved Landa® 2026</div>
                         <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
                     </div>
                 </div>
