@@ -112,6 +112,10 @@
     &.scrollTop {
         //backdrop-filter: blur(7.5px);
     }
+
+    &.privacy {
+        opacity: 1;
+    }
 }
 
 .list-wrapper {
