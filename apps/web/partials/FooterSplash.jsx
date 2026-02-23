@@ -104,9 +104,10 @@ const Footer = ({ template, contact_section }) => {
                                         <div className="newsletter-success-message">Thank you for subscribing. We look forward to sharing inspiring updates with you.</div>
                                         <div className="wrapper-content-form">
                                             <div className="input-container no-top text-inview">
+                                                <label className='sr-only' htmlFor="email">Email</label>
                                                 <Field
                                                     autoComplete='off'
-                                                    type='text'
+                                                    type='email'
                                                     name='Email'
                                                     id='email'
                                                     className={`newsletter-input ${errors.Email && touched.Email ? ("isError") : null}`}

@@ -30,8 +30,15 @@ export default {
                     title: 'Imagen (1514px × 1940px)',
                     type: 'image',
                     options: {
-                        hotspot: true,
-                    }
+                        hotspot: true
+                    },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Texto alternativo'
+                        }
+                    ]
                 },
             ],
             options: {
@@ -48,8 +55,15 @@ export default {
                     title: 'Imagen (1514px × 1940px)',
                     type: 'image',
                     options: {
-                        hotspot: true,
-                    }
+                        hotspot: true
+                    },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Texto alternativo'
+                        }
+                    ]
                 },
             ],
             options: {

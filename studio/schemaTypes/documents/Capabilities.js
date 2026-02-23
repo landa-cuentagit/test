@@ -59,12 +59,32 @@ export default {
                     {
                         name: 'image',
                         title: 'Image (960px × 1100px)',
-                        type: 'image'
+                        type: 'image',
+                        options: {
+                            hotspot: true
+                        },
+                        fields: [
+                            {
+                                name: 'alt',
+                                type: 'string',
+                                title: 'Texto alternativo'
+                            }
+                        ]
                     },
                     {
                         name: 'image_mobile',
                         title: 'Image Mobile (768px × 484px)',
-                        type: 'image'
+                        type: 'image',
+                        options: {
+                            hotspot: true
+                        },
+                        fields: [
+                            {
+                                name: 'alt',
+                                type: 'string',
+                                title: 'Texto alternativo'
+                            }
+                        ]
                     },
                     {
                         name: 'video',

@@ -18,17 +18,47 @@ export default {
         {
             name: 'image1',
             title: 'Image One (586px × 346px)',
-            type: 'image'
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Texto alternativo'
+                }
+            ]
         },
         {
             name: 'image2',
             title: 'Image Two (586px × 346px)',
-            type: 'image'
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Texto alternativo'
+                }
+            ]
         },
         {
             name: 'image3',
             title: 'Image Three (586px × 346px)',
-            type: 'image'
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Texto alternativo'
+                }
+            ]
         },
         {
             name: 'video1',

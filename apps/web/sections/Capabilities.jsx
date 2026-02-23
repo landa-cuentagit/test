@@ -107,7 +107,7 @@ const Capabilities = ({ capabilities_section }) => {
                                                         <video src={capability.videoUrl} muted autoPlay loop />
                                                     :
                                                         <Image
-                                                            alt={capability.capability_name}
+                                                            alt={capability.image?.alt ?? capability.capability_name}
                                                             height={550}
                                                             src={buildImages(capability.image.asset._ref).url()}
                                                             width={480}

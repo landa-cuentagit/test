@@ -25,12 +25,32 @@ export default {
         {
             name: 'image_desktop',
             title: 'Image Desktop (3026px × 1930px)',
-            type: 'image'
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Texto alternativo'
+                }
+            ]
         },
         {
             name: 'image_mobile',
             title: 'Image Mobile (1328px × 1766px)',
-            type: 'image'
+            type: 'image',
+            options: {
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Texto alternativo'
+                }
+            ]
         }
     ]
 }

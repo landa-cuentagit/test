@@ -66,7 +66,17 @@ export default {
                     {
                         name: 'image',
                         title: 'Image (1404px × 1028px)',
-                        type: 'image'
+                        type: 'image',
+                        options: {
+                            hotspot: true
+                        },
+                        fields: [
+                            {
+                                name: 'alt',
+                                type: 'string',
+                                title: 'Texto alternativo'
+                            }
+                        ]
                     }
                 ]
             }]

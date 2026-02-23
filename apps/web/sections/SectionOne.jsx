@@ -78,7 +78,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlOne} loop muted playsInline autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image1?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image1.asset._ref).url()}
                                             width={262}
@@ -95,7 +95,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlTwo} loop muted playsInline autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image2?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image2.asset._ref).url()}
                                             width={262}
@@ -112,7 +112,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlThree} loop muted playsInline autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image3?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image3.asset._ref).url()}
                                             width={262}
@@ -129,7 +129,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlOne} loop muted autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image1?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image1.asset._ref).url()}
                                             width={262}
@@ -146,7 +146,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlTwo} loop muted autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image2?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image2.asset._ref).url()}
                                             width={262}
@@ -163,7 +163,7 @@ const SectionOne = ({ section_one }) => {
                                         <video src={section_one.videoUrlThree} loop muted autoPlay />
                                     :
                                         <Image
-                                            alt="Landa"
+                                            alt={section_one.image3?.alt ?? "Landa"}
                                             height={163}
                                             src={buildImages(section_one.image3.asset._ref).url()}
                                             width={262}
