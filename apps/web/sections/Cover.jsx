@@ -88,7 +88,7 @@ const Cover = ({ template, cover_section }) => {
                                 cover_section.all_images_left.map((image, index) => (
                                     <SwiperSlide key={index}>
                                         <div
-                                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                                            className={`background-one ${(template === 'home' && hash === '') ?'' : (template === 'splash') ? '' : '' }`}
                                             style={{
                                                 background: `url(${buildImages(image.asset._ref).url()})`
                                             }}
@@ -121,7 +121,7 @@ const Cover = ({ template, cover_section }) => {
                                 cover_section.all_images_right.map((image, index) => (
                                     <SwiperSlide key={index}>
                                         <div
-                                            className={`background-one ${(template === 'home' && hash === '') ?'wait-image-effect' : (template === 'splash') ? 'image-effect' : '' }`}
+                                            className={`background-one ${(template === 'home' && hash === '') ?'' : (template === 'splash') ? '' : '' }`}
                                             style={{
                                                 background: `url(${buildImages(image.asset._ref).url()})`
                                             }}
