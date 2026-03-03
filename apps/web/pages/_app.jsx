@@ -1,5 +1,5 @@
 import React from 'react'
-import '../design/styles/base.scss'
+import '../design/styles/main.scss'
 import Head from "next/head";
 
 export default function MyApp({ Component, pageProps, router }) {

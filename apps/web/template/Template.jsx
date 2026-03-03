@@ -9,6 +9,8 @@ const Template = ({ children, title, description, keywords, template }) => {
     return (
         <>
             <Head>
+                <link rel="canonical" href="https://landa.com.mx/" />
+
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
