@@ -46,6 +46,27 @@ const Cover = ({ template, cover_section }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        const handleLoad = () => {
+            const videos = document.querySelectorAll('.cover-video');
+
+            if(videos) {
+                videos.forEach(video => video.src = video.dataset.src);
+            }
+        };
+
+        if (document.readyState === "complete") {
+            // Si ya cargó antes de montar el componente
+            handleLoad();
+        } else {
+            window.addEventListener("load", handleLoad);
+        }
+
+        return () => {
+            window.removeEventListener("load", handleLoad);
+        };
+    }, []);
+
     return (
         <section
             ref={ref}
@@ -69,7 +90,7 @@ const Cover = ({ template, cover_section }) => {
                 (cover_section.videoUrlOne)
                     ?
                         <div className="video-wrapper-one">
-                            <video className="lazy-video" data-src={cover_section.videoUrlOne} autoPlay playsInline muted loop preload="metadata" poster="/poster01.webp" />
+                            <video className="cover-video" data-src={cover_section.videoUrlOne} autoPlay playsInline muted loop preload="metadata" poster="/poster01.webp" />
                         </div>
                     :
                         <Swiper
@@ -102,7 +123,7 @@ const Cover = ({ template, cover_section }) => {
                 (cover_section.videoUrlTwo)
                     ?
                         <div className="video-wrapper-two">
-                            <video className="lazy-video" data-src={cover_section.videoUrlTwo} autoPlay playsInline muted loop preload="metadata" poster="/poster02.webp" />
+                            <video className="cover-video" data-src={cover_section.videoUrlTwo} autoPlay playsInline muted loop preload="metadata" poster="/poster02.webp" />
                         </div>
                     :
                         <Swiper
