@@ -51,7 +51,9 @@ const Cover = ({ template, cover_section }) => {
             const videos = document.querySelectorAll('.cover-video');
 
             if(videos) {
-                videos.forEach(video => video.src = video.dataset.src);
+                setTimeout(() => {
+                    videos.forEach(video => video.src = video.dataset.src);
+                }, 550);
             }
         };
 

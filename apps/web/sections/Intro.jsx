@@ -9,7 +9,7 @@ const Intro = forwardRef(({ setPlayLottie, intro_section, onFinish, onFadeInComp
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [fadeOut, setFadeOut] = useState(false);
-    const [fadeIn, setFadeIn] = useState(false);
+    const [fadeIn, setFadeIn] = useState(true);
 
     useEffect(() => {
 
