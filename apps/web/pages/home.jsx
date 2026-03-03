@@ -14,6 +14,8 @@ import Footer from '../partials/FooterSplash';
 
 import useInViewEffect from '../partials/Inview';
 
+import initLazyVideos from '../utils/lazyVideo';
+
 import { createClient } from "next-sanity";
 
 const client = createClient({
@@ -248,6 +250,8 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
         observer.observe(el);
         return () => observer.disconnect();
     }, []);
+
+    initLazyVideos();
 
     return (
         <>

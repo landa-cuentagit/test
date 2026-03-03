@@ -6,6 +6,8 @@ import Footer from '../partials/FooterSplash';
 
 import useInViewEffect from '../partials/Inview';
 
+import initLazyVideos from '../utils/lazyVideo';
+
 import { createClient } from "next-sanity";
 
 const client = createClient({
@@ -64,6 +66,8 @@ const Index = ({ page_settings, cover, contact_section }) => {
             outerWrapper.style.marginBottom = footerHeight + 'px';
         }
     }, [])
+
+    initLazyVideos();
 
     return (
         <>

@@ -104,7 +104,7 @@ const Capabilities = ({ capabilities_section }) => {
                                             {
                                                 (capability.videoUrl)
                                                     ?
-                                                        <video src={capability.videoUrl} muted autoPlay loop />
+                                                        <video className='lazy-video' data-src={capability.videoUrl} muted autoPlay loop />
                                                     :
                                                         <Image
                                                             alt={capability.image?.alt ?? capability.capability_name}
@@ -139,7 +139,7 @@ const Capabilities = ({ capabilities_section }) => {
                                                     {
                                                         (capability.videoUrl)
                                                             ?
-                                                                <video className='simple-effect visible-xs' src={capability.videoUrl} playsInline muted autoPlay loop />
+                                                                <video className='lazy-video simple-effect visible-xs' data-src={capability.videoUrl} playsInline muted autoPlay loop />
                                                             :
                                                                 (capability.image_mobile)
                                                                     ?
