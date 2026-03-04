@@ -100,7 +100,7 @@ const Footer = ({ template, contact_section }) => {
                                 onSubmit={handleSubmitNewsletter}
                             >
                                 {({errors, touched}) => (
-                                    <Form className="contact-form" ref={NewsletterContactForm}>
+                                    <Form className="contact-form" ref={NewsletterContactForm} method='post' action=''>
                                         <div className="newsletter-success-message">Thank you for subscribing. We look forward to sharing inspiring updates with you.</div>
                                         <div className="wrapper-content-form">
                                             <div className="input-container no-top text-inview">
