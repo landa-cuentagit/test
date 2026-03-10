@@ -50,6 +50,19 @@ const Template = ({ children, title, description, keywords, template }) => {
                 {/* twitter:url no es necesario; usa og:url */}
                 <meta name="theme-color" content="#F1EDE5" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="#F1EDE5" />
+
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `{
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "LANDA",
+                            "url": "https://www.landa.com.mx",
+                            "email": "contact@landa.com.mx"
+                        }`
+                    }}
+                />
             </Head>
             <div className={`outer-wrapper ${template}`}>
                 <h1 className="hidden">Transformando destinos regenerativos y experiencias de hospitalidad</h1>
