@@ -143,32 +143,66 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
     const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
-
         const outerWrapper = document.querySelector('.outer-wrapper');
-        outerWrapper.classList.add('intro-is-inview');
+        outerWrapper?.classList.add('intro-is-inview');
 
-        const sectionIds = ['portada', 'section-one', 'destinations', 'capabilities', 'about',  'contact'];
-        const sections = sectionIds.map((id) => document.getElementById(id));
+        const sectionIds = [
+            'portada',
+            'section-one',
+            'destinations',
+            'capabilities',
+            'about',
+        ];
 
-        const observer = new IntersectionObserver(
+        const sections = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+
+        const sectionObserver = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        console.log(entry.target.id)
-                        setActiveSection(entry.target.id);
-                    }
-                });
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visible[0]) {
+                setActiveSection(visible[0].target.id);
+            }
             },
             {
-                threshold: 0.6, // se activa cuando el 60% de la sección está visible
+            threshold: [0.25, 0.5, 0.75],
+            rootMargin: '-30% 0px -40% 0px',
             }
         );
 
-        sections.forEach((section) => {
-            if (section) observer.observe(section);
-        });
+        sections.forEach((section) => sectionObserver.observe(section));
 
-        return () => observer.disconnect();
+        const contact = document.getElementById('contact');
+
+        const contactObserver = new IntersectionObserver(
+            ([entry]) => {
+            if (entry.isIntersecting) {
+                setActiveSection('contact');
+            } else {
+                const rect = entry.boundingClientRect;
+
+                // Si el marcador de contact queda debajo del viewport,
+                // significa que regresaste hacia arriba.
+                if (rect.top > window.innerHeight) {
+                setActiveSection('about');
+                }
+            }
+            },
+            {
+            threshold: 0,
+            }
+        );
+
+        if (contact) contactObserver.observe(contact);
+
+        return () => {
+            sectionObserver.disconnect();
+            contactObserver.disconnect();
+        };
     }, []);
 
     useEffect(() => {
@@ -290,7 +324,7 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
                 <div id='about'>
                     <About about_section={about_section} />
                 </div>
-                <div id='contact' />
+                <div id='contact' style={{ height: 1 }} />
                 <div
                     className={`show-intro ${isStuck ? "is-stuck" : ""}`}
                     onClick={handleShowIntro}

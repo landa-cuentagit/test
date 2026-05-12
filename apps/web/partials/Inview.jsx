@@ -15,7 +15,7 @@ const useInViewEffect = () => {
         const options = {
             root: null,  // Observa respecto al viewport
             rootMargin: '0px',
-            threshold: 0.25 // El 25% del elemento debe estar visible
+            threshold: 0.15 // El 25% del elemento debe estar visible
         };
 
         const observer = new IntersectionObserver(applyEffect, options);
