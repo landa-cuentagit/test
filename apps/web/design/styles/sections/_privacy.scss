@@ -21,6 +21,16 @@
         font-size: 14px;
         line-height: 20px;
         padding-top: 33px;
+
+        strong {
+            display: block;
+            font-family: 'Switzer-Regular';
+            margin-top: 20px;
+        }
+
+        a {
+            color: inherit;
+        }
     }
 }
 

@@ -71,7 +71,7 @@ const Navigation = ({ contact_info, template, activeSection, playLottie }) => {
             <nav className={`navigation ${template} ${(template === 'privacy') ? 'with-background' : ''} ${(isActive) ? 'scrollTop' : '' }`}>
                 <div className="holder">
                     <div className="content">
-                        <a href={(template === 'home') ? '#' : '/home'} className="logo">
+                        <a href={(template === 'home') ? '#' : '/'} className="logo">
                             <Lottie
                                 animationData={LandaAnimated}
                                 loop={false} // Solo una vez

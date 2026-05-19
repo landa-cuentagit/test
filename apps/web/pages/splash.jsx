@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
 
 import Template from '../template/Template'
-
-import Navigation from '../partials/Navigation';
-import Privacy from '../sections/Privacy';
-
+import Cover from '../sections/Cover';
 import Footer from '../partials/FooterSplash';
 
 import useInViewEffect from '../partials/Inview';
+
+import initLazyVideos from '../utils/lazyVideo';
 
 import { createClient } from "next-sanity";
 
@@ -27,10 +26,12 @@ export async function getServerSideProps() {
         `
     );
 
-    const privacy_section = await client.fetch(
+    const cover = await client.fetch(
         `
-            *[_type == "privacy" ][0]{
-                ...
+            *[_type == "cover" ][0]{
+                ...,
+                "videoUrlOne": video1.asset->url,
+                "videoUrlTwo": video2.asset->url
             }
         `
     );
@@ -46,39 +47,40 @@ export async function getServerSideProps() {
     return {
         props: {
             page_settings,
-            contact_section,
-            privacy_section
+            cover,
+            contact_section
         }
     };
 }
 
-const PrivacyTemplate = ({ page_settings, contact_section, privacy_section }) => {
+const Index = ({ page_settings, cover, contact_section }) => {
 
     useInViewEffect();
-    
-        useEffect(() => {
-            let footer = document.querySelector('footer'),
-                footerHeight = footer.offsetHeight,
-                outerWrapper = document.querySelector('.outer-wrapper');
-    
-            if(window.innerWidth > 767) {
-                outerWrapper.style.marginBottom = footerHeight + 'px';
-            }
-        }, [])
+
+    useEffect(() => {
+        let footer = document.querySelector('footer'),
+            footerHeight = footer.offsetHeight,
+            outerWrapper = document.querySelector('.outer-wrapper');
+
+        if(window.innerWidth > 767) {
+            outerWrapper.style.marginBottom = footerHeight + 'px';
+        }
+    }, [])
+
+    initLazyVideos();
 
     return (
         <>
-            <Navigation showIntro={false} contact_info={contact_section} template='privacy' activeSection={null} />
             <Template
                 title={page_settings.title}
                 description={page_settings.metadescription}
                 keywords={page_settings.keywords}
-                >
-                <Privacy template='splash' privacy_section={privacy_section} />
+            >
+                <Cover template='splash' cover_section={cover} />
             </Template>
-            <Footer template='privacy' contact_section={contact_section} />
+            <Footer template='splash' contact_section={contact_section} />
         </>
     );
 }
 
-export default PrivacyTemplate;
+export default Index;

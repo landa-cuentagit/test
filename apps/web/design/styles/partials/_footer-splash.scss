@@ -105,21 +105,10 @@
         }
     }
 
-    &.splash, &.privacy {
+    &.splash {
 
         .number {
             display: none;
-        }
-    }
-
-    &.privacy {
-
-        .header, .content {
-            display: none;
-        }
-
-        .mobile-links {
-            margin-top: 0;
         }
     }
 

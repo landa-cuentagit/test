@@ -135,13 +135,7 @@ const Footer = ({ template, contact_section }) => {
                     <div className="flex-content">
                         <div className="left">
                             <div className="copyright text-effect">All rights reserved Landa® 2026</div>
-                            {
-                                (template === 'home')
-                                    ?
-                                        <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
-                                    :
-                                        null
-                            }
+                            <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
                         </div>
                         <div className="right">
                             <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
@@ -166,13 +160,7 @@ const Footer = ({ template, contact_section }) => {
                     <div className="right-links">
                         <div>
                             <div className="copyright text-effect">All rights reserved Landa® 2026</div>
-                            {
-                                (template === 'home')
-                                    ?
-                                        <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
-                                    :
-                                        null
-                            }
+                            <a href={(template === 'privacy') ? '#' : '/privacy-policy' } className={`link text-effect ${(template === 'privacy') ? 'active' : '' }`}>Privacy Policy</a>
                         </div>
                         <a className="link text-effect" href="https://www.latentestudio.com/en" target="_blank" rel="noopener noreferrer">Creative Strategy</a>
                     </div>
