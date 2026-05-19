@@ -142,68 +142,66 @@ const Home = ({ page_settings, intro, cover, section_one, destinations_section, 
 
     const [activeSection, setActiveSection] = useState('');
 
+    const hasContactBeenActive = useRef(false);
+
     useEffect(() => {
-        const outerWrapper = document.querySelector('.outer-wrapper');
-        outerWrapper?.classList.add('intro-is-inview');
+  const outerWrapper = document.querySelector('.outer-wrapper');
+  outerWrapper?.classList.add('intro-is-inview');
 
-        const sectionIds = [
-            'portada',
-            'section-one',
-            'destinations',
-            'capabilities',
-            'about',
-        ];
+  const sectionIds = [
+    'portada',
+    'section-one',
+    'destinations',
+    'capabilities',
+    'about',
+  ];
 
-        const sections = sectionIds
-            .map((id) => document.getElementById(id))
-            .filter(Boolean);
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
 
-        const sectionObserver = new IntersectionObserver(
-            (entries) => {
-            const visible = entries
-                .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+  const getCurrentSection = () => {
+    let current = 'portada';
 
-            if (visible[0]) {
-                setActiveSection(visible[0].target.id);
-            }
-            },
-            {
-            threshold: [0.25, 0.5, 0.75],
-            rootMargin: '-30% 0px -40% 0px',
-            }
-        );
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
 
-        sections.forEach((section) => sectionObserver.observe(section));
+      if (rect.top <= window.innerHeight * 0.45) {
+        current = section.id;
+      }
+    });
 
-        const contact = document.getElementById('contact');
+    return current;
+  };
 
-        const contactObserver = new IntersectionObserver(
-            ([entry]) => {
-            if (entry.isIntersecting) {
-                setActiveSection('contact');
-            } else {
-                const rect = entry.boundingClientRect;
+  const checkActiveSection = () => {
+    const wrapper = document.querySelector('.outer-wrapper');
+    if (!wrapper) return;
 
-                // Si el marcador de contact queda debajo del viewport,
-                // significa que regresaste hacia arriba.
-                if (rect.top > window.innerHeight) {
-                setActiveSection('about');
-                }
-            }
-            },
-            {
-            threshold: 0,
-            }
-        );
+    const { bottom } = wrapper.getBoundingClientRect();
+    const isAtEnd = bottom <= window.innerHeight + 2;
 
-        if (contact) contactObserver.observe(contact);
+    if (isAtEnd) {
+      setActiveSection('contact');
+      return;
+    }
 
-        return () => {
-            sectionObserver.disconnect();
-            contactObserver.disconnect();
-        };
-    }, []);
+    setActiveSection(getCurrentSection());
+  };
+
+  window.addEventListener('scroll', checkActiveSection, {
+    passive: true,
+  });
+
+  window.addEventListener('resize', checkActiveSection);
+
+  checkActiveSection();
+
+  return () => {
+    window.removeEventListener('scroll', checkActiveSection);
+    window.removeEventListener('resize', checkActiveSection);
+  };
+}, []);
 
     useEffect(() => {
         let outerWrapper = document.querySelector('.outer-wrapper')
